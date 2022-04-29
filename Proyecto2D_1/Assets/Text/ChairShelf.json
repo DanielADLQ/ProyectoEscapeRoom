@@ -1,0 +1,1 @@
+﻿{"inkVersion":20,"root":[["^Gracias a la silla, se puede alcanzar a ver lo que hay en el cuenco del estante.","\n","^Dentro hay un papel con el numero ","ev",{"VAR?":"segundoNum"},"out","/ev","^ escrito.","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev","str","^","/str",{"VAR=":"segundoNum"},"/ev","end",null],"#f":1}],"listDefs":{}}

@@ -1,0 +1,1 @@
+Una planta con aspecto saludable.

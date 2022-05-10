@@ -18,6 +18,13 @@ TagManager:
   - Shelf
   - Bookshelf
   - Water
+  - Bath
+  - N1
+  - N2
+  - N3
+  - N4
+  - CheckOneTime
+  - HasPuzzle
   layers:
   - Default
   - TransparentFX

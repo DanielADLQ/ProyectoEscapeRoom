@@ -9,6 +9,7 @@ public class SecretCodeGenerator : MonoBehaviour
     public string n3;
     public string n4;
     public string numCompleto;
+    
     // Start is called before the first frame update
     void Start()
     {

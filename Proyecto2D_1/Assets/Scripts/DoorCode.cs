@@ -75,7 +75,6 @@ public class DoorCode : MonoBehaviour
         btnClose.SetActive(false);
         clearScreen();
         player.GetComponent<PlayerController>().canMove = true;
-
     }
 
     public void inputNumber()

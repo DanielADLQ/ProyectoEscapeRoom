@@ -7,14 +7,17 @@ public class InkManager : MonoBehaviour
     //[SerializeField] private TextAsset _inkJsonAsset;
     private Story _story;
     [SerializeField] private Text _textField;
-
     [SerializeField] private VerticalLayoutGroup _choiceButtonContainer;
     [SerializeField] private Button _choiceButtonPrefab;
-
     [SerializeField] private GameObject textContainer;
-
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject globalVariables;
     private GameObject numGenerator;
+    private string variableInk;
+    public string valorSituacionBath = ""; //MEJOR IMPLEMENTAR CON CORRUTINAS
+    [SerializeField] private GameObject bath;
+    private string itemTag;
+    
 
     void Start()
     {
@@ -23,12 +26,15 @@ public class InkManager : MonoBehaviour
 
     public void StartStory(TextAsset inkJsonAsset, string variableInk, string itemTag)
     {
+
         //Debug.Log(itemTag);
+        //_story.ChoosePathString("");
         _story = new Story(inkJsonAsset.text);
         textContainer.SetActive(true);
-
+        this.itemTag = itemTag;
         if(variableInk != "")
         {
+            this.variableInk=variableInk;
             numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
             if(itemTag == "Bookshelf")
             {
@@ -46,6 +52,78 @@ public class InkManager : MonoBehaviour
             {
                 _story.variablesState[variableInk] = numGenerator.GetComponent<SecretCodeGenerator>().n4;
             }
+            //Scene2
+            if(itemTag == "Bath")
+            {
+                _story.variablesState[variableInk] = int.Parse(bath.GetComponent<waterPuzle>().valorVar);
+            }
+
+
+        }
+
+        DisplayNextLine();
+
+    }
+
+    //Para textos que cambian tras la primera ejecucion
+    public void StartStory(TextAsset inkJsonAsset, string variableInk, string itemTag, string checkedItem)
+    {
+            /*if(itemTag == "CheckOneTime")
+            {
+                //_story.variablesState[variableInk] = "0";
+                //Aqui pasar la variable de checkFirstTime, vinculando el script
+                Debug.Log("Empieza checkOne");
+                Debug.Log(_story.variablesState[variableInk].ToString());
+                if(_story.variablesState[variableInk].ToString() == "")
+                {
+                    _story.variablesState[variableInk] = "0";
+                    //Mandar el valor a checkFirsftTime para recogerlo despues en startStory
+                } 
+                
+            }*/
+        
+
+        //Debug.Log(itemTag);
+        _story = new Story(inkJsonAsset.text);
+
+        if(checkedItem == "1")
+        {
+            _story.ChoosePathString("After");
+        }
+        else
+        {
+            _story.ChoosePathString("First");
+        }
+
+        textContainer.SetActive(true);
+        this.itemTag = itemTag;
+        if(variableInk != "")
+        {
+            this.variableInk=variableInk;
+            numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
+            if(itemTag == "Bookshelf")
+            {
+                _story.variablesState[variableInk] = numGenerator.GetComponent<SecretCodeGenerator>().n1;
+            }
+            if(itemTag == "Chair")
+            {
+                _story.variablesState[variableInk] = numGenerator.GetComponent<SecretCodeGenerator>().n2;
+            }
+            if(itemTag == "Cup")
+            {
+                _story.variablesState[variableInk] = numGenerator.GetComponent<SecretCodeGenerator>().n3;
+            }
+            if(itemTag == "Bed")
+            {
+                _story.variablesState[variableInk] = numGenerator.GetComponent<SecretCodeGenerator>().n4;
+            }
+            //Scene2
+            if(itemTag == "Bath")
+            {
+                _story.variablesState[variableInk] = int.Parse(bath.GetComponent<waterPuzle>().valorVar);
+            }
+
+
         }
 
         DisplayNextLine();
@@ -75,11 +153,36 @@ public class InkManager : MonoBehaviour
     private void EndStory()
     {
         textContainer.SetActive(false);
-        player.GetComponent<PlayerController>().canMove = true; 
+        player.GetComponent<PlayerController>().canMove = true;
+
+        //OBJETOS CUYO TEXTO CAMBIA TRAS LA PRIMERA INTERACCION
+        if(itemTag == "CheckOneTime")
+        {
+            globalVariables.GetComponent<GlobalVariables>().changeVariable(variableInk,"1");
+            /*if(_story.variablesState[variableInk].ToString() == "0")
+            {
+                _story.variablesState[variableInk] = "1";
+                //Mandar el valor a checkFirsftTime para recogerlo despues en startStory
+            }*/ 
+        }
+        else //REVISAR ESTA PARTE-
+        {
+            if(variableInk!="")
+            {
+                if(_story.variablesState[variableInk].ToString() != "Null") //USAR CORRUTINAS MEJOR?
+                {
+                    Debug.Log(_story.variablesState[variableInk].ToString());
+                    valorSituacionBath = _story.variablesState[variableInk].ToString();
+                    bath.GetComponent<waterPuzle>().valorVar = valorSituacionBath;
+                }
+            }
+        }
+
+
     }
     private void DisplayChoices()
     {
-        // checks if choices are already being displaye
+        // checks if choices are already being displayed
         if (_choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) return;
 
         for (int i = 0; i < _story.currentChoices.Count; i++) // iterates through all choices

@@ -8,10 +8,7 @@ public class PlayerController : MonoBehaviour
     public float verticalInput;
     public float horizontalInput;
     private bool isWalking;
-    public Vector2 moveInput;
-
     private Animator anim;
-
     public bool canMove = true;
 
     // Start is called before the first frame update

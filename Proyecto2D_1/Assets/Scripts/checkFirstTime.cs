@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waterPuzle : MonoBehaviour
+public class checkFirstTime : MonoBehaviour
 {
-    [SerializeField] private GameObject globalVariables;
+    private string checkedItem = "0";
     private bool isPlayerInRange;
     private GameObject player;
-    [SerializeField] private GameObject bath;
-    [SerializeField] private GameObject water;
     [SerializeField] private TextAsset inkJsonAsset;
-    public string variableInk;
+    public string variableInk="";
     private GameObject inkManager;
-    public string valorVar;
-
+    //public string valorVar = "";
     // Start is called before the first frame update
     void Start()
     {
-        valorVar = "-1";
         player = GameObject.FindWithTag("Player");
         inkManager = GameObject.FindWithTag("InkManager");
     }
@@ -25,20 +21,6 @@ public class waterPuzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        /*if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z)){
-            if(water.activeSelf){
-                water.SetActive(false);
-            }else{
-                water.SetActive(true);
-            }
-        }*/
-
-        if(valorVar=="-1" && globalVariables.GetComponent<GlobalVariables>().getValue("taponEncontrado") == "1")
-        {
-            valorVar="0";
-        }
-
         if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
         {
             if(player.GetComponent<PlayerController>().canMove)
@@ -47,17 +29,9 @@ public class waterPuzle : MonoBehaviour
                 player.GetComponent<PlayerController>().canMove = false;
                 player.GetComponent<Animator>().SetBool("isWalking",false);
 
-                inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+                inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag, checkedItem);
+                checkedItem = "1";
             }
-        }
-
-        if(int.Parse(valorVar)>=2)
-        {
-            water.SetActive(true);
-        }
-        else
-        {
-            water.SetActive(false);
         }
     }
 
@@ -80,5 +54,4 @@ public class waterPuzle : MonoBehaviour
             Debug.Log("No Zona dialogo");
         }
     }
-
 }

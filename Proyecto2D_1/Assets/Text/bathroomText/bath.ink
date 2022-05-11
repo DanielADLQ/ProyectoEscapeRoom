@@ -1,5 +1,5 @@
 VAR situacionBath = -1
-Es la bañera. {situacionBath}
+Es la bañera.
 -> Inicio
 
 === Inicio ===

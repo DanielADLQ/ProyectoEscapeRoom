@@ -167,13 +167,16 @@ public class InkManager : MonoBehaviour
         }
         else //REVISAR ESTA PARTE-
         {
-            if(variableInk!="")
+            if(itemTag=="Bath")
             {
-                if(_story.variablesState[variableInk].ToString() != "Null") //USAR CORRUTINAS MEJOR?
+                if(variableInk!="")
                 {
-                    Debug.Log(_story.variablesState[variableInk].ToString());
-                    valorSituacionBath = _story.variablesState[variableInk].ToString();
-                    bath.GetComponent<waterPuzle>().valorVar = valorSituacionBath;
+                    if(_story.variablesState[variableInk].ToString() != "Null")
+                    {
+                        Debug.Log(_story.variablesState[variableInk].ToString());
+                        valorSituacionBath = _story.variablesState[variableInk].ToString();
+                        bath.GetComponent<waterPuzle>().valorVar = valorSituacionBath;
+                    }
                 }
             }
         }

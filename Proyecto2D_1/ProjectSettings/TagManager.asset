@@ -25,6 +25,8 @@ TagManager:
   - N4
   - CheckOneTime
   - HasPuzzle
+  - DB
+  - SaveVariables
   layers:
   - Default
   - TransparentFX

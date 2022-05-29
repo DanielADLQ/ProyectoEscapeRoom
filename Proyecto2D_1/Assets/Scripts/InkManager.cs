@@ -14,8 +14,8 @@ public class InkManager : MonoBehaviour
     [SerializeField] private GameObject globalVariables;
     private GameObject numGenerator;
     private string variableInk;
-    public string valorSituacionBath = ""; //MEJOR IMPLEMENTAR CON CORRUTINAS
-    [SerializeField] private GameObject bath;
+    public string valorSituacion = ""; //MEJOR IMPLEMENTAR CON CORRUTINAS
+    [SerializeField] private GameObject item;
     private string itemTag;
     
 
@@ -55,9 +55,27 @@ public class InkManager : MonoBehaviour
             //Scene2
             if(itemTag == "Bath")
             {
-                _story.variablesState[variableInk] = int.Parse(bath.GetComponent<waterPuzle>().valorVar);
+                _story.variablesState[variableInk] = int.Parse(item.GetComponent<waterPuzle>().valorVar);
             }
-
+            //Scene3
+            if (itemTag == "Fridge")
+            {
+                _story.variablesState[variableInk] = int.Parse(item.GetComponent<fridgePuzle>().valorVar);
+            }
+            if (itemTag == "Microwave")
+            {
+                _story.variablesState[variableInk] = "el segundo ingrediente";//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
+                //item.GetComponent<fridgePuzle>().valorVar = "0";
+            }
+            if (itemTag == "CatFood")
+            {
+                _story.variablesState[variableInk] = "el primer ingrediente";//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
+                //item.GetComponent<fridgePuzle>().valorVar = "0";
+            }
+            if (itemTag == "Tablecloth")
+            {
+                _story.variablesState[variableInk] = "La tercera variable";
+            }
 
         }
 
@@ -120,7 +138,25 @@ public class InkManager : MonoBehaviour
             //Scene2
             if(itemTag == "Bath")
             {
-                _story.variablesState[variableInk] = int.Parse(bath.GetComponent<waterPuzle>().valorVar);
+                _story.variablesState[variableInk] = int.Parse(item.GetComponent<waterPuzle>().valorVar);
+            }
+            //Scene3
+            if (itemTag == "Fridge")
+            {
+                _story.variablesState[variableInk] = int.Parse(item.GetComponent<fridgePuzle>().valorVar);
+            }
+            if (itemTag == "Microwave")
+            {
+                _story.variablesState[variableInk] = "el segundo ingrediente";//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
+            }
+            if (itemTag == "CatFood")
+            {
+                _story.variablesState[variableInk] = "el primer ingrediente";//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
+                //item.GetComponent<fridgePuzle>().valorVar = "0";
+            }
+            if (itemTag == "Tablecloth")
+            {
+                _story.variablesState[variableInk] = "La tercera variable";
             }
 
 
@@ -174,10 +210,32 @@ public class InkManager : MonoBehaviour
                     if(_story.variablesState[variableInk].ToString() != "Null")
                     {
                         Debug.Log(_story.variablesState[variableInk].ToString());
-                        valorSituacionBath = _story.variablesState[variableInk].ToString();
-                        bath.GetComponent<waterPuzle>().valorVar = valorSituacionBath;
+                        valorSituacion = _story.variablesState[variableInk].ToString();
+                        item.GetComponent<waterPuzle>().valorVar = valorSituacion;
                     }
                 }
+            }
+            if (itemTag == "Fridge")
+            {
+                if (variableInk != "")
+                {
+                    if (_story.variablesState[variableInk].ToString() != "Null")
+                    {
+                        Debug.Log(_story.variablesState[variableInk].ToString());
+                        valorSituacion = _story.variablesState[variableInk].ToString();
+                        item.GetComponent<fridgePuzle>().valorVar = valorSituacion;
+                    }
+                }
+            }
+
+            if (itemTag == "Microwave")
+            {
+                item.GetComponent<fridgePuzle>().valorVar = "0"; //Pierde el objeto
+            }
+
+            if (itemTag == "CatFood")
+            {
+                item.GetComponent<fridgePuzle>().valorVar = "0"; //Pierde el objeto
             }
         }
 

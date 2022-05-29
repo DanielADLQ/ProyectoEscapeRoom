@@ -14,8 +14,10 @@ public class DBManager : MonoBehaviour
     [SerializeField] private InputField enterName;
     [SerializeField] private GameObject contentBox;
     [SerializeField] private Button btnSaveSlot;
+    [SerializeField] private GameObject panelPlayerResults;
     private GameObject saveVariables;
     private int cod; //ROWID de la partida en la BBDD
+    //public string numScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class DBManager : MonoBehaviour
             using(var command = connection.CreateCommand())
             {
                 //Se usa el campo oculto ROWID como identificador y clave primaria
-                command.CommandText = "CREATE TABLE IF NOT EXISTS PARTIDA(Nombre VARCHAR2(10), EscenaActual VARCHAR2(20) ,Tiempo1 VARCHAR2(10), Tiempo2 VARCHAR2(10), Tiempo3 VARCHAR2(10))";
+                command.CommandText = "CREATE TABLE IF NOT EXISTS PARTIDA(Nombre VARCHAR2(10), EscenaActual VARCHAR2(20) ,Tiempo1 VARCHAR2(10) DEFAULT '-', Tiempo2 VARCHAR2(10) DEFAULT '-', Tiempo3 VARCHAR2(10) DEFAULT '-')";
                 command.ExecuteNonQuery();
                 //command.CommandText = "CREATE TABLE IF NOT EXISTS PROGRESO(IDPartida VARCHAR2(10), FOREIGN KEY(IDPartida) REFERENCES PARTIDA(IDPartida))"; //Añadir variables de progreso, por ahora para pruebas
                 //command.ExecuteNonQuery();
@@ -102,6 +104,26 @@ public class DBManager : MonoBehaviour
         }
     }
 
+    public void guardarTiempo(int id, string numScene, string finishTime)
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        using (var connection = new SqliteConnection(dbName))
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                //command.CommandText = "INSERT INTO PARTIDA(Nombre) VALUES('"+enterName.text.Trim()+"')";
+                command.CommandText = "UPDATE PARTIDA SET Tiempo"+numScene+" = '" + finishTime + "' WHERE ROWID = " + id;
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+    }
+
+
     public void cargarPartidaSeleccionada()
     {
         saveVariables.GetComponent<SaveVariables>().cod = int.Parse(gameObject.transform.GetChild(0).GetComponent<Text>().text);
@@ -158,6 +180,56 @@ public class DBManager : MonoBehaviour
                         button.transform.GetChild(2).GetComponent<Text>().text = reader.GetString(2);
                         //Coloca el boton en el content del scrollView
                         button.transform.SetParent(contentBox.transform, false);
+                    }
+                }
+            }
+        }
+    }
+
+    public void cargarListaResultados()
+    {
+        using (var connection = new SqliteConnection(dbName))
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                //command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA";
+                command.CommandText = "SELECT Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA";
+                //command.CommandText = "SELECT ROWID, Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA WHERE EscenaActual LIKE 'Finalizada'";
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+
+                    //string cod;
+                    //string nom;
+                    //string prog;
+
+                    //Limpiar resultados anteriores
+                    foreach (Transform child in contentBox.transform)
+                    {
+                        GameObject.Destroy(child.gameObject);
+                    }
+
+                    //Leer resultados de la select
+                    while (reader.Read())
+                    {
+                        Debug.Log("Carga");
+                        //Crear boton por cada resultado
+                        var panelResults = Instantiate<GameObject>(panelPlayerResults);
+                        //Asignar texto a los botones
+                        /*Debug.Log(reader.GetDataTypeName(0).ToString());
+                        Debug.Log(reader.GetDataTypeName(1).ToString());
+                        Debug.Log(reader.GetDataTypeName(2).ToString());
+                        Debug.Log(reader.GetInt32(0).ToString());
+                        Debug.Log(reader.GetString(1));
+                        Debug.Log(reader.GetString(2));*/
+                        panelResults.transform.GetChild(0).GetComponent<Text>().text = reader.GetString(0);
+                        panelResults.transform.GetChild(1).GetComponent<Text>().text = reader.GetString(1);
+                        panelResults.transform.GetChild(2).GetComponent<Text>().text = reader.GetString(2);
+                        panelResults.transform.GetChild(3).GetComponent<Text>().text = reader.GetString(3);
+                        //Coloca el boton en el content del scrollView
+                        panelResults.transform.SetParent(contentBox.transform, false);
                     }
                 }
             }

@@ -12,7 +12,7 @@ public class waterPuzle : MonoBehaviour
     [SerializeField] private TextAsset inkJsonAsset;
     public string variableInk;
     private GameObject inkManager;
-    public string valorVar;
+    public string valorVar = "-1";
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +25,6 @@ public class waterPuzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        /*if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z)){
-            if(water.activeSelf){
-                water.SetActive(false);
-            }else{
-                water.SetActive(true);
-            }
-        }*/
 
         if(valorVar=="-1" && globalVariables.GetComponent<GlobalVariables>().getValue("taponEncontrado") == "1")
         {

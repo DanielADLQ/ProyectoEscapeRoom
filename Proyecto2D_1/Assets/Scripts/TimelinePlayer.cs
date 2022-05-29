@@ -12,17 +12,24 @@ public class TimelinePlayer : MonoBehaviour
         director = GetComponent<PlayableDirector>();
         director.played += Director_Played;
         director.stopped += Director_Stopped;
-        isplaying = true;
+        //isplaying = true;
     }
     private void Director_Stopped(PlayableDirector obj)
     {
         isplaying = false;
-        controlPanel.SetActive(true);
+        if(controlPanel != null)
+        {
+            controlPanel.SetActive(true);
+        }
+        
     }
     private void Director_Played(PlayableDirector obj)
     {
         isplaying = true;
-        controlPanel.SetActive(false);
+        if(controlPanel != null)
+        {
+            controlPanel.SetActive(false);
+        }
     }
     public void StartTimeline()
     {

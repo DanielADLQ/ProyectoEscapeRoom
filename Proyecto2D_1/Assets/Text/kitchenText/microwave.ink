@@ -1,0 +1,9 @@
+VAR segundoParam = "loquesea"
+
+Metes el bloque bloque de hielo en el microondas.
+Cierras la tapa y lo pones en marcha.
+...
+... ...
+... ... ...
+Observas como se derrite el hielo y queda al descubierto un trozo de papel.
+En el papel pone {segundoParam}.

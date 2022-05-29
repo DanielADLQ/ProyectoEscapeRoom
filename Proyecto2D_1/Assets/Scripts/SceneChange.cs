@@ -7,9 +7,16 @@ public class SceneChange : MonoBehaviour
 {
     private bool isPlayerInRange;
     public string sceneName;
+    public string actualSceneNum;
+
+    private GameObject cam;
+    private GameObject saveVariables;
+
     // Start is called before the first frame update
     void Start()
     {
+        saveVariables = GameObject.FindWithTag("SaveVariables");
+        cam = GameObject.FindWithTag("MainCamera");
         isPlayerInRange = false;
     }
 
@@ -18,6 +25,7 @@ public class SceneChange : MonoBehaviour
     {
         if(isPlayerInRange)
         {
+            cam.GetComponent<DBManager>().guardarTiempo(saveVariables.GetComponent<SaveVariables>().cod, actualSceneNum, cam.GetComponent<Timer>().timeStr);
             loadNewScene(sceneName);
         }
     }
@@ -69,5 +77,7 @@ public class SceneChange : MonoBehaviour
     {
         panel.SetActive(false);
     }
+
+
 
 }

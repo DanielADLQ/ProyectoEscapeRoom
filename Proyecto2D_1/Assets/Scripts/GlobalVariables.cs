@@ -18,6 +18,8 @@ public class GlobalVariables : MonoBehaviour
         values.Add("0");
         variables.Add("taponEncontrado");
         values.Add("0");
+        //variables.Add("fridgeState");
+        //values.Add("0");
     }
 
     // Update is called once per frame

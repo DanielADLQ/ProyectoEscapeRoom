@@ -506,7 +506,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 5099859cf580dc047a2cb0b5ba19ee88, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   water: {fileID: 1531176064}
   inkJsonAsset: {fileID: 4900000, guid: 873fcee6069fedd4d85c7360bd50d223, type: 3}
   variableInk: situacionBath
-  valorVar: 0
+  valorVar: -1
 --- !u!4 &488528288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7641012994201702594, guid: 90669b1a127e663498865234113a3211, type: 3}
@@ -4289,6 +4289,7 @@ GameObject:
   - component: {fileID: 1625560759}
   - component: {fileID: 1625560763}
   - component: {fileID: 1625560762}
+  - component: {fileID: 1625560764}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4376,6 +4377,7 @@ MonoBehaviour:
   enterName: {fileID: 0}
   contentBox: {fileID: 0}
   btnSaveSlot: {fileID: 0}
+  panelPlayerResults: {fileID: 0}
 --- !u!114 &1625560763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4388,6 +4390,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31b4eebc20fbaa4b8cd4d7c85865ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1625560764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625560758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1c9a23518655b4ca948fa0fb193be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeStr: 
 --- !u!1001 &1729983560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4699,6 +4714,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 488528281}
     - target: {fileID: 7874127694666048176, guid: bf901455f23878141a4fb9038592761a, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 488528281}
+    - target: {fileID: 7874127694666048176, guid: bf901455f23878141a4fb9038592761a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1942251831}
@@ -4710,6 +4729,10 @@ PrefabInstance:
       propertyPath: textContainer
       value: 
       objectReference: {fileID: 820384978}
+    - target: {fileID: 7874127694666048176, guid: bf901455f23878141a4fb9038592761a, type: 3}
+      propertyPath: valorSituacion
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7874127694666048176, guid: bf901455f23878141a4fb9038592761a, type: 3}
       propertyPath: globalVariables
       value: 

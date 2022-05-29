@@ -1,4 +1,3 @@
-VAR gotKey1 = false
 -> Inicio
 === Inicio ===
 ->END

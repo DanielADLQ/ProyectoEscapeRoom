@@ -16,19 +16,27 @@ public class DoorCode : MonoBehaviour
     private String screenNum;
     private String inputNum;
     public int codeLength;
-    private string secretNum = "";
+    public string secretNum = "";
     private GameObject door;
     private GameObject numGenerator;
     //private bool acertado = false;
     void Start()
     {
-        numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
+        try
+        {
+            numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
+            secretNum = numGenerator.GetComponent<SecretCodeGenerator>().numCompleto;
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("No hay generador de numeros secretos");
+        }
         isPlayerInRange = false;
         player = GameObject.FindWithTag("Player");
         //panelCode = GameObject.FindWithTag("PanelCode");
         door = GameObject.FindWithTag("Door");
         screen.text="";
-        secretNum = numGenerator.GetComponent<SecretCodeGenerator>().numCompleto;
+
     }
 
     // Update is called once per frame

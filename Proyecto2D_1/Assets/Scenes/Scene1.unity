@@ -10271,6 +10271,7 @@ MonoBehaviour:
   contentBox: {fileID: 0}
   btnSaveSlot: {fileID: 0}
   panelPlayerResults: {fileID: 0}
+  laptopPuzzle: {fileID: 0}
 --- !u!114 &1593346962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11610,7 +11611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene2
+  newSceneName: Scene2
   actualSceneNum: 1
 --- !u!61 &1931521670
 BoxCollider2D:

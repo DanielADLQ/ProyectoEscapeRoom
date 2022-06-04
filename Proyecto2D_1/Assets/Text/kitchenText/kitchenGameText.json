@@ -1,0 +1,1 @@
+﻿{"inkVersion":20,"root":[["^Tras revolver un poco entre utensilios de cocina, encuentras un recorte de periódico.","\n","^En el centro pone \"","ev",{"VAR?":"cuartoParam"},"out","/ev","^\".","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev","str","^el cuarto parametro","/str",{"VAR=":"cuartoParam"},"/ev","end",null],"#f":1}],"listDefs":{}}

@@ -2091,6 +2091,7 @@ MonoBehaviour:
   btnClose: {fileID: 636878216}
   screen: {fileID: 0}
   codeLength: 4
+  secretNum: 
 --- !u!114 &636878220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3285,8 +3286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene2
-  actualSceneNum: 1
+  newSceneName: Scene3
+  actualSceneNum: 2
 --- !u!61 &1022061786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4450,6 +4451,7 @@ MonoBehaviour:
   contentBox: {fileID: 0}
   btnSaveSlot: {fileID: 0}
   panelPlayerResults: {fileID: 0}
+  laptopPuzzle: {fileID: 0}
 --- !u!114 &1625560763
 MonoBehaviour:
   m_ObjectHideFlags: 0

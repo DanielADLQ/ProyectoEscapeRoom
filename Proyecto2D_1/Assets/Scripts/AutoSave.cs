@@ -9,7 +9,12 @@ public class AutoSave : MonoBehaviour
     void Start()
     {
         saveVariables = GameObject.FindWithTag("SaveVariables");
-        gameObject.GetComponent<DBManager>().guardarPartida(saveVariables.GetComponent<SaveVariables>().cod);
+
+        if(saveVariables.GetComponent<SaveVariables>().cod != 0)
+        {
+            gameObject.GetComponent<DBManager>().guardarPartida(saveVariables.GetComponent<SaveVariables>().cod);
+        }
+        
     }
 
     // Update is called once per frame

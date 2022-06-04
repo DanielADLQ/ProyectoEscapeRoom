@@ -83,7 +83,7 @@ public class InkManager : MonoBehaviour
             {
                 _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing3;
             }
-            if (itemTag == "JuegoCocina")
+            if (itemTag == "KitchenGame")
             {
                 _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing4;
             }
@@ -172,7 +172,7 @@ public class InkManager : MonoBehaviour
             {
                 _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing3;
             }
-            if (itemTag == "JuegoCocina")
+            if (itemTag == "KitchenGame")
             {
                 _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing4;
             }

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &65190945
 GameObject:
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &595465350
 GameObject:
@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &634356303 stripped
 GameObject:
@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &645466388
 GameObject:
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &820873486
 GameObject:
@@ -3663,7 +3663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &1312514391
 GameObject:
@@ -4840,6 +4840,8 @@ GameObject:
   - component: {fileID: 1622610418}
   - component: {fileID: 1622610417}
   - component: {fileID: 1622610416}
+  - component: {fileID: 1622610420}
+  - component: {fileID: 1622610419}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4912,6 +4914,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1622610419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622610415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31b4eebc20fbaa4b8cd4d7c85865ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1622610420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622610415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c63548619b3e748b55e01f98defea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterName: {fileID: 0}
+  contentBox: {fileID: 0}
+  btnSaveSlot: {fileID: 0}
+  panelPlayerResults: {fileID: 0}
+  laptopPuzzle: {fileID: 0}
 --- !u!1 &1631491212
 GameObject:
   m_ObjectHideFlags: 0
@@ -5456,7 +5487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene1
+  newSceneName: Scene1
   actualSceneNum: 
 --- !u!114 &1859786202
 MonoBehaviour:
@@ -5637,7 +5668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1001 &2005617216
 PrefabInstance:
@@ -5918,7 +5949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1 &2146911098 stripped
 GameObject:
@@ -5954,7 +5985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  newSceneName: 
   actualSceneNum: 
 --- !u!1001 &327777532579660516
 PrefabInstance:

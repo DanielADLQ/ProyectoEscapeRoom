@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     private bool isPlayerInRange;
-    public string sceneName;
+    public string newSceneName;
     public string actualSceneNum;
 
     private GameObject cam;
@@ -26,7 +26,7 @@ public class SceneChange : MonoBehaviour
         if(isPlayerInRange)
         {
             cam.GetComponent<DBManager>().guardarTiempo(saveVariables.GetComponent<SaveVariables>().cod, actualSceneNum, cam.GetComponent<Timer>().timeStr);
-            loadNewScene(sceneName);
+            loadNewScene(newSceneName);
         }
     }
 
@@ -37,7 +37,7 @@ public class SceneChange : MonoBehaviour
 
     public void loadNewScene()
     {
-        SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadSceneAsync(newSceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

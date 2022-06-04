@@ -20,7 +20,8 @@ public class DBManager : MonoBehaviour
 
     private GameObject saveVariables;
     private int cod; //ROWID de la partida en la BBDD
-    //public string numScene;
+    
+    private string lastPlayableScene = "3";
 
 
 
@@ -50,7 +51,7 @@ public class DBManager : MonoBehaviour
             using(var command = connection.CreateCommand())
             {
                 //Se usa el campo oculto ROWID como identificador y clave primaria
-                command.CommandText = "CREATE TABLE IF NOT EXISTS PARTIDA(Nombre VARCHAR2(10), EscenaActual VARCHAR2(20) ,Tiempo1 VARCHAR2(10) DEFAULT '-', Tiempo2 VARCHAR2(10) DEFAULT '-', Tiempo3 VARCHAR2(10) DEFAULT '-')";
+                command.CommandText = "CREATE TABLE IF NOT EXISTS PARTIDA(Nombre VARCHAR2(10), EscenaActual VARCHAR2(20) ,Tiempo1 VARCHAR2(10) DEFAULT '-', Tiempo2 VARCHAR2(10) DEFAULT '-', Tiempo3 VARCHAR2(10) DEFAULT '-', TiempoTotal VARCHAR2(10) DEFAULT '-')";
                 command.ExecuteNonQuery();
                 //command.CommandText = "CREATE TABLE IF NOT EXISTS PROGRESO(IDPartida VARCHAR2(10), FOREIGN KEY(IDPartida) REFERENCES PARTIDA(IDPartida))"; //Añadir variables de progreso, por ahora para pruebas
                 //command.ExecuteNonQuery();
@@ -197,6 +198,42 @@ public class DBManager : MonoBehaviour
                 //command.CommandText = "INSERT INTO PARTIDA(Nombre) VALUES('"+enterName.text.Trim()+"')";
                 command.CommandText = "UPDATE PARTIDA SET Tiempo"+numScene+" = '" + finishTime + "' WHERE ROWID = " + id;
                 command.ExecuteNonQuery();
+
+                //Añadir tiempo final al acabar el juego
+                if(numScene == lastPlayableScene)
+                {
+
+                    TimeSpan t1;
+                    TimeSpan t2;
+                    TimeSpan t3;
+                    TimeSpan tTotal;
+
+                    //command.CommandText = "SELECT Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA";
+                    command.CommandText = "SELECT Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA WHERE ROWID = " + id; //Al acabar el juego llega a la escena start, en este caso indica que es una partida finalizada
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+
+                        //Leer resultados unico de la select
+                        reader.Read();
+                        Debug.Log("Tiempos leidos");
+
+                        t1 = TimeSpan.ParseExact(reader.GetString(0), @"mm\:ss\:fff", System.Globalization.CultureInfo.InvariantCulture);
+                        Debug.Log(t1.ToString(@"mm\:ss\:fff"));
+                        t2 = TimeSpan.ParseExact(reader.GetString(1), @"mm\:ss\:fff", System.Globalization.CultureInfo.InvariantCulture);
+                        t3 = TimeSpan.ParseExact(reader.GetString(2), @"mm\:ss\:fff", System.Globalization.CultureInfo.InvariantCulture);
+
+                        //var t2 = TimeSpan.ParseExact(tmp, @"m\:s\:fff", System.Globalization.CultureInfo.InvariantCulture);
+
+                    }
+
+                    tTotal = t1.Add(t2).Add(t3);
+                    string timeStr = tTotal.ToString(@"mm\:ss\:fff");
+                    command.CommandText = "UPDATE PARTIDA SET TiempoTotal = '"+tTotal+"' WHERE ROWID = " + id;
+                    command.ExecuteNonQuery();
+
+                }
+                
             }
 
             connection.Close();
@@ -227,7 +264,7 @@ public class DBManager : MonoBehaviour
             using(var command = connection.CreateCommand())
             {
                 //command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA";
-                command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA WHERE EscenaActual NOT LIKE 'Finalizada'";
+                command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA WHERE EscenaActual NOT LIKE 'Start'"; //Al acabar el juego llega a la escena start, en este caso indica que es una partida finalizada
 
                 using(IDataReader reader = command.ExecuteReader())
                 {
@@ -269,16 +306,11 @@ public class DBManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                //command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA";
-                command.CommandText = "SELECT Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA";
-                //command.CommandText = "SELECT ROWID, Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA WHERE EscenaActual LIKE 'Finalizada'";
+                //command.CommandText = "SELECT Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA";
+                command.CommandText = "SELECT ROWID, Nombre, Tiempo1, Tiempo2, Tiempo3, TiempoTotal FROM PARTIDA WHERE EscenaActual LIKE 'Start' ORDER BY TiempoTotal"; //Al acabar el juego llega a la escena start, en este caso indica que es una partida finalizada
 
                 using (IDataReader reader = command.ExecuteReader())
                 {
-
-                    //string cod;
-                    //string nom;
-                    //string prog;
 
                     //Limpiar resultados anteriores
                     foreach (Transform child in contentBox.transform)
@@ -294,10 +326,11 @@ public class DBManager : MonoBehaviour
                         var panelResults = Instantiate<GameObject>(panelPlayerResults);
                         //Asignar texto a los botones
 
-                        panelResults.transform.GetChild(0).GetComponent<Text>().text = reader.GetString(0);
-                        panelResults.transform.GetChild(1).GetComponent<Text>().text = reader.GetString(1);
-                        panelResults.transform.GetChild(2).GetComponent<Text>().text = reader.GetString(2);
-                        panelResults.transform.GetChild(3).GetComponent<Text>().text = reader.GetString(3);
+                        panelResults.transform.GetChild(0).GetComponent<Text>().text = reader.GetString(1);
+                        panelResults.transform.GetChild(1).GetComponent<Text>().text = reader.GetString(2);
+                        panelResults.transform.GetChild(2).GetComponent<Text>().text = reader.GetString(3);
+                        panelResults.transform.GetChild(3).GetComponent<Text>().text = reader.GetString(4);
+                        panelResults.transform.GetChild(4).GetComponent<Text>().text = reader.GetString(5).Substring(0, reader.GetString(5).Length-4);
                         //Coloca el boton en el content del scrollView
                         panelResults.transform.SetParent(contentBox.transform, false);
                     }
@@ -366,7 +399,6 @@ public class DBManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                //command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA";
                 command.CommandText = "SELECT CodigoSecreto FROM PUZLE_MENU WHERE ING1 LIKE '" + ingMenu1 + "' AND ING2 LIKE '" + ingMenu2 + "' AND ING3 LIKE '" + ingMenu3 + "' AND ING4 LIKE '" + ingMenu4 + "'";
 
                 using (IDataReader reader = command.ExecuteReader())

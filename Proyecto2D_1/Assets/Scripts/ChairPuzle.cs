@@ -12,6 +12,9 @@ public class ChairPuzle : MonoBehaviour
     public string variableInk;
     private GameObject inkManager;
 
+    [SerializeField] private GameObject timelinePlayer;
+    private bool animLaunched = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +33,20 @@ public class ChairPuzle : MonoBehaviour
                 player.GetComponent<PlayerController>().canMove = false;
                 player.GetComponent<Animator>().SetBool("isWalking",false);
                 Debug.Log("Me subo a la silla");
-                inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+
+                timelinePlayer.GetComponent<TimelinePlayer>().StartTimeline();
+                animLaunched = true;
+
+                //inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
             }
         }
+
+        if (animLaunched && !timelinePlayer.GetComponent<TimelinePlayer>().isplaying) //Momento en el que finaliza la ejecucion del timeline
+        {
+            inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+            animLaunched = false;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

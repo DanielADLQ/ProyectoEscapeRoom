@@ -17,7 +17,10 @@ public class LightPuzle : MonoBehaviour
     [SerializeField] private TextAsset inkJsonAsset;
     public string variableInk;
     private GameObject inkManager;
-    
+
+    [SerializeField] private GameObject timelinePlayer;
+    private bool animLaunched = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +43,22 @@ public class LightPuzle : MonoBehaviour
                     Debug.Log("Enseña el numero que toque");
                     player.GetComponent<PlayerController>().canMove = false;
                     player.GetComponent<Animator>().SetBool("isWalking",false);
-                    inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
-                    //Podria usar un panel que sea un dibujo del techo
+
+                    timelinePlayer.GetComponent<TimelinePlayer>().StartTimeline();
+                    animLaunched = true;
+
+                    //inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+                    
                 }
+
             }
+
+            if (animLaunched && !timelinePlayer.GetComponent<TimelinePlayer>().isplaying) //Momento en el que finaliza la ejecucion del timeline
+            {
+                inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+                animLaunched = false;
+            }
+
         }
         else
         {

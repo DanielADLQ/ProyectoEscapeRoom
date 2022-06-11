@@ -36,69 +36,19 @@ public class Interaction : MonoBehaviour
         {
             if(player.GetComponent<PlayerController>().canMove)
             {
-                //didDialogueStart = true;
                 player.GetComponent<PlayerController>().canMove = false;
                 player.GetComponent<Animator>().SetBool("isWalking",false);
                 inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, itemTag);
-                //player.GetComponent<PlayerController>().canMove = true;
-                //didDialogueStart = false;
-                //StartDialogue();
             }
-            /*else if(dialogueText.text == dialogueLines[lineIndex])
-            {
-                nextDialogueLine();
-            }*/
+
         }
     }
-
-    /*private void StartDialogue()
-    {
-        didDialogueStart = true;
-
-        dialogueImage.sprite = characterPortrait; 
-
-        player.GetComponent<PlayerController>().canMove = false;
-        dialogPanel.SetActive(true);
-        //dialogueMark.SetActive(false);
-        //lineIndex = 0;
-        //StartCoroutine(ShowLine());
-    }
-
-    private void nextDialogueLine()
-    {
-        lineIndex++;
-        if(lineIndex < dialogueLines.Length)
-        {
-            StartCoroutine(ShowLine());
-        }
-        else
-        {
-            didDialogueStart = false;
-            dialogPanel.SetActive(false);
-            player.GetComponent<PlayerController>().canMove = true;
-            //dialogMark.SetActive(true);
-        }
-
-    }
-
-    private IEnumerator ShowLine()
-    {
-        dialogueText.text = String.Empty;
-
-        foreach(char ch in dialogueLines[lineIndex])
-        {
-            dialogueText.text += ch;
-            yield return new WaitForSeconds(typingTime);
-        }
-    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona dialogo");
             itemTag = this.tag;
         }
     }
@@ -108,8 +58,6 @@ public class Interaction : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            Debug.Log("No Zona dialogo");
             itemTag = "";
         }
     }

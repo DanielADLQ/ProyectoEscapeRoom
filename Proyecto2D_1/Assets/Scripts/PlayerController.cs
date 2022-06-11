@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(canMove)
         {
             verticalInput = Input.GetAxis("Vertical");
@@ -48,7 +49,6 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("isWalking",isWalking);
                 }
             }
-        
         }
     }
 }

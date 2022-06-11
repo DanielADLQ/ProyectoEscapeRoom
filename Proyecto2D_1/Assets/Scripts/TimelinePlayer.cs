@@ -7,17 +7,36 @@ public class TimelinePlayer : MonoBehaviour
     private PlayableDirector director;
     public GameObject controlPanel;
     public bool isplaying;
+    private GameObject player;
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player");
         director = GetComponent<PlayableDirector>();
         director.played += Director_Played;
         director.stopped += Director_Stopped;
         //isplaying = true;
+
+        if (gameObject.tag == "InitialCutscene")
+        {
+            director.Play();
+        }
+
     }
     private void Director_Stopped(PlayableDirector obj)
     {
         isplaying = false;
-        if(controlPanel != null)
+
+        if(gameObject.tag == "InitialCutscene")
+        {
+            player.GetComponent<PlayerController>().canMove = true;
+        }
+
+        if(gameObject.tag == "CutsceneThenText")
+        {
+            player.GetComponent<PlayerController>().canMove = false;
+        }
+
+        if (controlPanel != null)
         {
             controlPanel.SetActive(true);
         }
@@ -26,7 +45,8 @@ public class TimelinePlayer : MonoBehaviour
     private void Director_Played(PlayableDirector obj)
     {
         isplaying = true;
-        if(controlPanel != null)
+        player.GetComponent<PlayerController>().canMove = false;
+        if (controlPanel != null)
         {
             controlPanel.SetActive(false);
         }

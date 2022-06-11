@@ -40,6 +40,29 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadSceneAsync(newSceneName);
     }
 
+    public void closeGame()
+    {
+        try
+        {
+            UnityEditor.EditorApplication.isPlaying = false; //Para simular la funcionalidad
+        }
+        catch
+        {
+            Application.Quit(); //Para la version final
+        }
+    }
+
+    public void openInfoPanel([SerializeField] GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void closeInfoPanel([SerializeField] GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -61,23 +84,5 @@ public class SceneChange : MonoBehaviour
             //itemTag = "";
         }
     }
-
-    public void closeGame()
-    {
-        //Application.Quit(); //Para la version final
-        UnityEditor.EditorApplication.isPlaying = false; //Para simular la funcionalidad
-    }
-
-    public void openInfoPanel([SerializeField] GameObject panel)
-    {
-        panel.SetActive(true);
-    }
-
-    public void closeInfoPanel([SerializeField] GameObject panel)
-    {
-        panel.SetActive(false);
-    }
-
-
 
 }

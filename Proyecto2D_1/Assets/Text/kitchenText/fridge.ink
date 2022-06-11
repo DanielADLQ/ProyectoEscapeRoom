@@ -11,11 +11,12 @@ VAR objetoFridge = 0
 === noTieneNada ===
 Veamos que hay por aquí...
 ***Ese pescado tan feo
-    Coges el pez. Parece que te está mirando...
+    Coges el pez. Es pequeño y huele mal.
+    Parece que te está mirando...
     ~objetoFridge = 1
     ->END
 ***El bloque de hielo raro del congelador
-    Coges el bloque de hielo. ¡QUE FRIO!
+    Coges el bloque de hielo. ¡QUE FRÍO!
     Parece que tiene algo en su interior...
     ~objetoFridge = 2
     ->END

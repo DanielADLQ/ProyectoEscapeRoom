@@ -27,7 +27,7 @@ public class DoorCode : MonoBehaviour
             numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
             secretNum = numGenerator.GetComponent<SecretCodeGenerator>().numCompleto;
         }
-        catch (Exception ex)
+        catch
         {
             Debug.Log("No hay generador de numeros secretos");
         }
@@ -94,36 +94,25 @@ public class DoorCode : MonoBehaviour
             Debug.Log(inputNum);
             screen.text += inputNum;
             Debug.Log(screen.text);
-        }
-        
+        }   
     }
-
     public void checkCode()
     {
         if(screen.text.Length == codeLength)
         {
-            Debug.Log("Tiene las 4 cifras");
+
             //acertado = true;
             if(screen.text.Equals(secretNum))
             {
-                Debug.Log("CORRECTO!!!");
                 closePanelCode();
                 door.SetActive(false);
             }
             else
             {
-                //acertado = false;
-                Debug.Log("INCORRECTOOOOOO "+screen.text+" "+secretNum);
                 screen.text = "";
             }
         }
-        else
-        {
-            Debug.Log("DEBEN SER 4 CIFRAS");
-        }
-        //Debug.Log(acertado.ToString());
     }
-
     public void clearScreen()
     {
         screen.text = "";

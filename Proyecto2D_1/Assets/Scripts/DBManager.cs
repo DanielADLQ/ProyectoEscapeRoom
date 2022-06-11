@@ -78,23 +78,16 @@ public class DBManager : MonoBehaviour
 
                 using (IDataReader reader = command.ExecuteReader())
                 {
-
-                    //Leer resultados de la select
-                    //while (reader.Read())
-                    //{
                     reader.Read();
-                    Debug.Log("Hay "+ reader.GetInt32(0).ToString()+" menus en la tabla");
+
                     if(reader.GetInt32(0) == 0)
                     {
                         connection.Close();
                         cargarMenus();
                     }
-                    //}
                 }
             }
-
             connection.Close();
-
         }
     }
 
@@ -146,7 +139,6 @@ public class DBManager : MonoBehaviour
                 command.CommandText = "INSERT INTO PARTIDA(Nombre, EscenaActual) VALUES('"+enterName.text.Trim()+"','Inicio')";
                 command.ExecuteNonQuery();
 
-                //Registra el ROWID de la nueva partida en el singleton para guardar posteriormente
                 command.CommandText = "SELECT last_insert_rowid()";
                 command.ExecuteNonQuery();
 
@@ -157,12 +149,9 @@ public class DBManager : MonoBehaviour
                         saveVariables.GetComponent<SaveVariables>().cod = reader.GetInt32(0);
                     }
                 }
-
             }
-
             connection.Close();
         }
-
     }
 
     //Guardado automatico que se ejecuta al principio de cada escena
@@ -263,16 +252,10 @@ public class DBManager : MonoBehaviour
 
             using(var command = connection.CreateCommand())
             {
-                //command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA";
                 command.CommandText = "SELECT ROWID, Nombre, EscenaActual FROM PARTIDA WHERE EscenaActual NOT LIKE 'Start'"; //Al acabar el juego llega a la escena start, en este caso indica que es una partida finalizada
 
                 using(IDataReader reader = command.ExecuteReader())
                 {
-
-                    //string cod;
-                    //string nom;
-                    //string prog;
-
                     //Limpiar resultados anteriores
                     foreach(Transform child in contentBox.transform)
                     {
@@ -285,7 +268,6 @@ public class DBManager : MonoBehaviour
                         Debug.Log("Carga");
                         //Crear boton por cada resultado
                         var button = Instantiate<Button>(btnSaveSlot);
-                        //Asignar texto a los botones
 
                         button.transform.GetChild(0).GetComponent<Text>().text = reader.GetInt32(0).ToString();
                         button.transform.GetChild(1).GetComponent<Text>().text = reader.GetString(1);
@@ -306,22 +288,18 @@ public class DBManager : MonoBehaviour
 
             using (var command = connection.CreateCommand())
             {
-                //command.CommandText = "SELECT Nombre, Tiempo1, Tiempo2, Tiempo3 FROM PARTIDA";
                 command.CommandText = "SELECT ROWID, Nombre, Tiempo1, Tiempo2, Tiempo3, TiempoTotal FROM PARTIDA WHERE EscenaActual LIKE 'Start' ORDER BY TiempoTotal"; //Al acabar el juego llega a la escena start, en este caso indica que es una partida finalizada
 
                 using (IDataReader reader = command.ExecuteReader())
                 {
-
                     //Limpiar resultados anteriores
                     foreach (Transform child in contentBox.transform)
                     {
                         GameObject.Destroy(child.gameObject);
                     }
-
                     //Leer resultados de la select
                     while (reader.Read())
                     {
-                        Debug.Log("Carga");
                         //Crear boton por cada resultado
                         var panelResults = Instantiate<GameObject>(panelPlayerResults);
                         //Asignar texto a los botones

@@ -16,7 +16,7 @@ Es la bañera.
 ->END
 
 === echarAgua ===
-    ¿A que temperatura?
+    ¿A qué temperatura?
     ***Fría
         Abres el grifo y dejas el agua correr.
         Para no desperdiciar agua, cierras el grifo.
@@ -52,24 +52,24 @@ Es la bañera.
 ->END
 
 === quitarTapon ===
-    Quitas el tapon y lo guardas.
+    Quitas el tapón y lo guardas.
     ~situacionBath=0
 ->END
 
 === llenarBanera ===
-    ¿A que temperatura?
+    ¿A qué temperatura?
     ***Fría
         Abres el grifo y dejas el agua correr.
-        La bañera esta llena de agua fría.
+        La bañera está llena de agua fría.
         ~situacionBath=2
     ->END
     ***Templada
         Abres el grifo y dejas el agua correr.
-        La bañera esta llena de agua templada.
+        La bañera está llena de agua templada.
         ~situacionBath=3
     ->END
     ***Caliente
         Abres el grifo y dejas el agua correr.
-        La bañera esta llena de agua caliente.
+        La bañera está llena de agua caliente.
         ~situacionBath=4
     ->END

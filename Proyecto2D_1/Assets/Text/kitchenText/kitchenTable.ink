@@ -3,10 +3,10 @@ La mesa ya está puesta... Supongo que hay que darse prisa.
 Me esta entrando hambre...
 Bueno, ¿que podría hacer?
 ***Revisar los cubiertos
-    Observar concienzudamente los cubiertos uno a uno.
+    Observas concienzudamente los cubiertos uno a uno.
     No parece que haya nada llamativo.
 ->END
-***Levantar los platos
+***Comprobar los platos
     Coges los platos y los volteas en todos los ángulos posibles.
     Igualmente no encuentras nada interesante.
 ->END

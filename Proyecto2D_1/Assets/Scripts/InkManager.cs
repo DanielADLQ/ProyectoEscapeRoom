@@ -31,9 +31,6 @@ public class InkManager : MonoBehaviour
 
     public void StartStory(TextAsset inkJsonAsset, string variableInk, string itemTag)
     {
-
-        //Debug.Log(itemTag);
-        //_story.ChoosePathString("");
         _story = new Story(inkJsonAsset.text);
         textContainer.SetActive(true);
         this.itemTag = itemTag;
@@ -98,22 +95,6 @@ public class InkManager : MonoBehaviour
     //Para textos que cambian tras la primera ejecucion
     public void StartStory(TextAsset inkJsonAsset, string variableInk, string itemTag, string checkedItem)
     {
-            /*if(itemTag == "CheckOneTime")
-            {
-                //_story.variablesState[variableInk] = "0";
-                //Aqui pasar la variable de checkFirstTime, vinculando el script
-                Debug.Log("Empieza checkOne");
-                Debug.Log(_story.variablesState[variableInk].ToString());
-                if(_story.variablesState[variableInk].ToString() == "")
-                {
-                    _story.variablesState[variableInk] = "0";
-                    //Mandar el valor a checkFirsftTime para recogerlo despues en startStory
-                } 
-                
-            }*/
-        
-
-        //Debug.Log(itemTag);
         _story = new Story(inkJsonAsset.text);
 
         if(checkedItem == "1")

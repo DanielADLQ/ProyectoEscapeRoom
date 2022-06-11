@@ -3,7 +3,7 @@
 ->END
 === First ===
 Tras hacer acopio de valor, abres el cubo.
-Solo tiene una llave en su interior.
+Hay una llave en su interior.
 Coges la llave.
 ->END
 

@@ -32,6 +32,9 @@ TagManager:
   - CatFood
   - Tablecloth
   - KitchenGame
+  - ClosePanel
+  - InitialCutscene
+  - CutsceneThenText
   layers:
   - Default
   - TransparentFX

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class LightPuzle : MonoBehaviour
 {
-    //[SerializeField] private GameObject lightSwitch;
-    //[SerializeField] private GameObject lamp;
-    //[SerializeField] private GameObject bed;
     [SerializeField] private GameObject lightPanel;
     [SerializeField] private GameObject lampLight;
     [SerializeField] private GameObject roomLight;
-    //private GameObject roomLight;
-    //private GameObject lampLight;
-    private bool isPlayerInRange;
     private GameObject player;
     [SerializeField] private TextAsset inkJsonAsset;
     public string variableInk;
@@ -36,7 +30,7 @@ public class LightPuzle : MonoBehaviour
     {
         if(gameObject.tag == "Bed")
         {
-            if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
+            if(gameObject.GetComponent<checkPlayerRange>().isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
             {
                 if(roomLight.activeSelf && lampLight.activeSelf)
                 {
@@ -62,9 +56,8 @@ public class LightPuzle : MonoBehaviour
         }
         else
         {
-            if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
+            if(gameObject.GetComponent<checkPlayerRange>().isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
             {
-                //if(gameObject.tag == "")
                 if(lightPanel.activeSelf){
                     lightPanel.SetActive(false);
                 }
@@ -76,26 +69,6 @@ public class LightPuzle : MonoBehaviour
             }
         }
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona dialogo");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            Debug.Log("No Zona dialogo");
-        }
     }
 
 }

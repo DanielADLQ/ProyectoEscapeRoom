@@ -7,8 +7,6 @@ public class Laptop : MonoBehaviour
     [SerializeField] public GameObject panelLaptop;
     [SerializeField] public GameObject cameraWithDb;
     [SerializeField] public GameObject confirmDoorCodeButton;
-    //[SerializeField] public GameObject btnClose;
-    private bool isPlayerInRange;
     private GameObject player;
     public string menuCode;
 
@@ -31,16 +29,17 @@ public class Laptop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
+        if(gameObject.tag == "SecretCodeGenerator")
         {
-            if (player.GetComponent<PlayerController>().canMove)
+            if (gameObject.GetComponent<checkPlayerRange>().isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
             {
-                //didDialogueStart = true;
-                player.GetComponent<PlayerController>().canMove = false;
-                player.GetComponent<Animator>().SetBool("isWalking", false);
+                if (player.GetComponent<PlayerController>().canMove)
+                {
+                    player.GetComponent<PlayerController>().canMove = false;
+                    player.GetComponent<Animator>().SetBool("isWalking", false);
 
-                //btnClose.SetActive(true);
-                panelLaptop.SetActive(true);
+                    panelLaptop.SetActive(true);
+                }
             }
         }
     }
@@ -49,21 +48,5 @@ public class Laptop : MonoBehaviour
         panelLaptop.SetActive(false);
         player.GetComponent<PlayerController>().canMove = true;
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-        }
     }
 }

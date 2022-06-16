@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 0}
 --- !u!1 &65190945
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 0}
 --- !u!1 &231836683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 0}
 --- !u!1 &595465350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,6 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 0}
 --- !u!1 &618873413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!1001 &641753878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2244,8 +2249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cod: 0
-  nom: 
-  prog: 
 --- !u!4 &645466390
 Transform:
   m_ObjectHideFlags: 0
@@ -2531,6 +2534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!1 &735371775
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!1 &1312514391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,6 +4772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!1 &1390904304
 GameObject:
   m_ObjectHideFlags: 0
@@ -6249,6 +6255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 0}
 --- !u!1 &1700959384
 GameObject:
   m_ObjectHideFlags: 0
@@ -6750,6 +6757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: Scene1
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!114 &1859786202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7006,6 +7014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 0}
 --- !u!1001 &2005617216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7287,6 +7296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!1001 &2116941215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7452,6 +7462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSceneName: 
   actualSceneNum: 
+  audC: {fileID: 8300000, guid: 749f0af1809fb834c8f0213e553fcca7, type: 3}
 --- !u!1001 &327777532579660516
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ GALLINA
 AVESTRUZ
 ->incorrecto
 **Águila
-ÁGULIA
+ÁGUILA
 ->correcto
 **Buitre
 BUITRE

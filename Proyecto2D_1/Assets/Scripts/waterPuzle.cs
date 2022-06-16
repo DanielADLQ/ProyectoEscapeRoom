@@ -5,7 +5,6 @@ using UnityEngine;
 public class waterPuzle : MonoBehaviour
 {
     [SerializeField] private GameObject globalVariables;
-    private bool isPlayerInRange;
     private GameObject player;
     [SerializeField] private GameObject bath;
     [SerializeField] private GameObject water;
@@ -31,15 +30,18 @@ public class waterPuzle : MonoBehaviour
             valorVar="0";
         }
 
-        if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
+        checkPlayerRange check;
+        if (gameObject.TryGetComponent<checkPlayerRange>(out check))
         {
-            if(player.GetComponent<PlayerController>().canMove)
+            if (check.isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
             {
-                //didDialogueStart = true;
-                player.GetComponent<PlayerController>().canMove = false;
-                player.GetComponent<Animator>().SetBool("isWalking",false);
+                if (player.GetComponent<PlayerController>().canMove)
+                {
+                    player.GetComponent<PlayerController>().canMove = false;
+                    player.GetComponent<Animator>().SetBool("isWalking", false);
 
-                inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+                    inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
+                }
             }
         }
 
@@ -50,26 +52,6 @@ public class waterPuzle : MonoBehaviour
         else
         {
             water.SetActive(false);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona dialogo");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            Debug.Log("No Zona dialogo");
         }
     }
 

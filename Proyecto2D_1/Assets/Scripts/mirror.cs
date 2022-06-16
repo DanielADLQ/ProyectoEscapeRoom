@@ -11,7 +11,6 @@ public class mirror : MonoBehaviour
     [SerializeField] private GameObject panelEspejo;
     [SerializeField] private GameObject panelEmpaniado;
     [SerializeField] private GameObject btnClose;
-    private bool isPlayerInRange;
     private GameObject player;
     private GameObject numGenerator;
     [SerializeField] private GameObject n1;
@@ -22,56 +21,45 @@ public class mirror : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
-        n1.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n1;
-        n2.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n2;
-        n3.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n3;
-        n4.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n4;
+        checkPlayerRange check;
+        if (gameObject.TryGetComponent<checkPlayerRange>(out check))
+        {
+            numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
+            n1.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n1;
+            n2.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n2;
+            n3.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n3;
+            n4.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n4;
+        }
+
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
+        checkPlayerRange check;
+        if (gameObject.TryGetComponent<checkPlayerRange>(out check))
         {
-            if(player.GetComponent<PlayerController>().canMove)
+            if (check.isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
             {
-                //didDialogueStart = true;
-                player.GetComponent<PlayerController>().canMove = false;
-                player.GetComponent<Animator>().SetBool("isWalking",false);
+                if (player.GetComponent<PlayerController>().canMove)
+                {
+                    player.GetComponent<PlayerController>().canMove = false;
+                    player.GetComponent<Animator>().SetBool("isWalking", false);
 
-                btnClose.SetActive(true);
-                if(bath.GetComponent<waterPuzle>().valorVar == "4")
-                {
-                    panelEspejo.SetActive(false);
-                    panelEmpaniado.SetActive(true);
-                }
-                else
-                {
-                    panelEspejo.SetActive(true);
-                    panelEmpaniado.SetActive(false);
+                    btnClose.SetActive(true);
+                    if (bath.GetComponent<waterPuzle>().valorVar == "4")
+                    {
+                        panelEspejo.SetActive(false);
+                        panelEmpaniado.SetActive(true);
+                    }
+                    else
+                    {
+                        panelEspejo.SetActive(true);
+                        panelEmpaniado.SetActive(false);
+                    }
                 }
             }
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona dialogo");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            Debug.Log("No Zona dialogo");
         }
     }
 

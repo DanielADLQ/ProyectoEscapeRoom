@@ -9,11 +9,15 @@ public class CloseGame : MonoBehaviour
     private GameObject saveVariables;
     [SerializeField] private GameObject panelCloseGame;
 
+    private AudioSource audS;
+    public AudioClip audC;
+
     // Start is called before the first frame update
     void Start()
     {
         saveVariables = GameObject.FindWithTag("SaveVariables");
         player = GameObject.FindWithTag("Player");
+        audS = GameObject.FindWithTag("MainCamera").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +32,10 @@ public class CloseGame : MonoBehaviour
                     player.GetComponent<PlayerController>().canMove = false;
                     player.GetComponent<Animator>().SetBool("isWalking", false);
 
+                    if (audC != null)
+                    {
+                        audS.PlayOneShot(audC);
+                    }
                     panelCloseGame.SetActive(true);
 
                 }
@@ -37,21 +45,25 @@ public class CloseGame : MonoBehaviour
 
     public void returnToMainMenu()
     {
+        if (audC != null)
+        {
+            audS.PlayOneShot(audC);
+        }
         saveVariables.GetComponent<SaveVariables>().cod = 0;
         SceneManager.LoadSceneAsync("Start");
     }
 
     public void closeGame()
     {
-        try
+        /*try
         {
             UnityEditor.EditorApplication.isPlaying = false; //Para simular la funcionalidad
             
         }
         catch
-        {
+        {*/
             Application.Quit(); //Para la version final
-        }
+        //}
         
     }
 
@@ -62,6 +74,10 @@ public class CloseGame : MonoBehaviour
 
     public void closeInfoPanel([SerializeField] GameObject panel)
     {
+        if (audC != null)
+        {
+            audS.PlayOneShot(audC);
+        }
         panel.SetActive(false);
         player.GetComponent<PlayerController>().canMove = true;
     }

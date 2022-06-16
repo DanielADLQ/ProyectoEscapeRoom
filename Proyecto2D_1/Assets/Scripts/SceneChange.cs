@@ -5,28 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    private bool isPlayerInRange;
     public string newSceneName;
     public string actualSceneNum;
 
     private GameObject cam;
     private GameObject saveVariables;
 
+    private AudioSource audS;
+    public AudioClip audC;
+
     // Start is called before the first frame update
     void Start()
     {
         saveVariables = GameObject.FindWithTag("SaveVariables");
         cam = GameObject.FindWithTag("MainCamera");
-        isPlayerInRange = false;
+        audS = cam.GetComponent<AudioSource>();
+
+        checkPlayerRange check;
+        if (gameObject.TryGetComponent<checkPlayerRange>(out check))
+        {
+            check.isPlayerInRange = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isPlayerInRange)
+        checkPlayerRange check;
+        if (gameObject.TryGetComponent<checkPlayerRange>(out check))
         {
-            cam.GetComponent<DBManager>().guardarTiempo(saveVariables.GetComponent<SaveVariables>().cod, actualSceneNum, cam.GetComponent<Timer>().timeStr);
-            loadNewScene(newSceneName);
+            if (check.isPlayerInRange)
+            {
+                cam.GetComponent<DBManager>().guardarTiempo(saveVariables.GetComponent<SaveVariables>().cod, actualSceneNum, cam.GetComponent<Timer>().timeStr);
+                loadNewScene(newSceneName);
+            }
         }
     }
 
@@ -42,47 +54,27 @@ public class SceneChange : MonoBehaviour
 
     public void closeGame()
     {
-        try
+        /*try
         {
             UnityEditor.EditorApplication.isPlaying = false; //Para simular la funcionalidad
         }
         catch
-        {
+        {*/
             Application.Quit(); //Para la version final
-        }
+        //}
     }
 
     public void openInfoPanel([SerializeField] GameObject panel)
     {
         panel.SetActive(true);
+        if(audC != null)
+        {
+            audS.PlayOneShot(audC);
+        }
     }
 
     public void closeInfoPanel([SerializeField] GameObject panel)
     {
         panel.SetActive(false);
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona cambio de escena");
-            //itemTag = this.tag;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            //Debug.Log("No Zona dialogo");
-            //itemTag = "";
-        }
-    }
-
 }

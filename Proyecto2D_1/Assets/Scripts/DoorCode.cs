@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class DoorCode : MonoBehaviour
 {
-    private bool isPlayerInRange;
     private GameObject player;
     // Start is called before the first frame update
     [SerializeField] private GameObject panelCode;
@@ -29,11 +28,9 @@ public class DoorCode : MonoBehaviour
         }
         catch
         {
-            Debug.Log("No hay generador de numeros secretos");
+            //Debug.Log("No hay generador de numeros secretos");
         }
-        isPlayerInRange = false;
         player = GameObject.FindWithTag("Player");
-        //panelCode = GameObject.FindWithTag("PanelCode");
         door = GameObject.FindWithTag("Door");
         screen.text="";
 
@@ -42,38 +39,21 @@ public class DoorCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
+        checkPlayerRange check;
+        if(gameObject.TryGetComponent<checkPlayerRange>(out check))
         {
-            if(player.GetComponent<PlayerController>().canMove)
+            if (gameObject.GetComponent<checkPlayerRange>().isPlayerInRange && Input.GetKeyDown(KeyCode.Z))
             {
-                //didDialogueStart = true;
-                player.GetComponent<PlayerController>().canMove = false;
-                player.GetComponent<Animator>().SetBool("isWalking",false);
+                if (player.GetComponent<PlayerController>().canMove)
+                {
+                    player.GetComponent<PlayerController>().canMove = false;
+                    player.GetComponent<Animator>().SetBool("isWalking", false);
 
-                panelCode.SetActive(true);
-                btnClose.SetActive(true);
-                
+                    panelCode.SetActive(true);
+                    btnClose.SetActive(true);
+
+                }
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona dialogo");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            Debug.Log("No Zona dialogo");
         }
     }
 

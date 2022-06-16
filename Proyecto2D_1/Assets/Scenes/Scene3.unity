@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 26877011}
   - component: {fileID: 26877010}
   - component: {fileID: 26877013}
+  - component: {fileID: 26877014}
   m_Layer: 0
   m_Name: Interior_24
   m_TagString: Untagged
@@ -454,6 +455,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 966d9efae0f47ad41bf1da8918d5a682, type: 3}
   variableInk: 
+--- !u!114 &26877014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26877007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &69293517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1853,7 @@ GameObject:
   - component: {fileID: 134307085}
   - component: {fileID: 134307084}
   - component: {fileID: 134307083}
+  - component: {fileID: 134307087}
   m_Layer: 0
   m_Name: Microondas
   m_TagString: Microwave
@@ -1998,6 +2014,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &134307087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134307080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &140531927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3029,7 +3059,6 @@ GameObject:
   m_Component:
   - component: {fileID: 309689364}
   - component: {fileID: 309689363}
-  - component: {fileID: 309689365}
   m_Layer: 0
   m_Name: Laptop_1
   m_TagString: Untagged
@@ -3102,26 +3131,6 @@ Transform:
   m_Father: {fileID: 1203350215}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &309689365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309689362}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecc8abb76eb9964fb175a029e5bdda2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelLaptop: {fileID: 1639763800}
-  cameraWithDb: {fileID: 1441247036}
-  confirmDoorCodeButton: {fileID: 443582623}
-  menuCode: 
-  ing1: 
-  ing2: 
-  ing3: 
-  ing4: 
 --- !u!1 &320165571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,8 +3412,6 @@ GameObject:
   - component: {fileID: 429725255}
   - component: {fileID: 429725254}
   - component: {fileID: 429725253}
-  - component: {fileID: 429725256}
-  - component: {fileID: 429725258}
   - component: {fileID: 429725257}
   m_Layer: 0
   m_Name: Cat
@@ -3495,7 +3502,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 1.5625}
+    oldSize: {x: 1.5, y: 1.1875}
     newSize: {x: 1.5, y: 1.1875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3521,7 +3528,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 1.5625}
+    oldSize: {x: 1.5, y: 1.1875}
     newSize: {x: 1.5, y: 1.1875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3551,22 +3558,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &429725256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429725250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db24e24954bd3942a812ec0fc5ed34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fridge: {fileID: 0}
-  inkJsonAsset: {fileID: 0}
-  timelinePlayer: {fileID: 0}
-  variableInk: 
 --- !u!95 &429725257
 Animator:
   serializedVersion: 3
@@ -3586,27 +3577,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!320 &429725258
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429725250}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 4e30c0e0ddaf35d4489e60200fb49782, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 5129852375704687914, guid: 4e30c0e0ddaf35d4489e60200fb49782, type: 2}
-    value: {fileID: 429725257}
-  - key: {fileID: 3463927885403514531, guid: 4e30c0e0ddaf35d4489e60200fb49782, type: 2}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &438533356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3589,7 @@ GameObject:
   - component: {fileID: 438533358}
   - component: {fileID: 438533360}
   - component: {fileID: 438533359}
+  - component: {fileID: 438533361}
   m_Layer: 0
   m_Name: FinishPuzzle
   m_TagString: Untagged
@@ -3703,8 +3674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: Start
+  newSceneName: Change3-F
   actualSceneNum: 3
+  audC: {fileID: 0}
 --- !u!61 &438533360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3731,6 +3703,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4841881, y: 0.15715396}
   m_EdgeRadius: 0
+--- !u!114 &438533361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438533356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &443582623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6044283195625564356, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
@@ -4038,6 +4024,7 @@ GameObject:
   - component: {fileID: 532363808}
   - component: {fileID: 532363807}
   - component: {fileID: 532363810}
+  - component: {fileID: 532363811}
   m_Layer: 0
   m_Name: LaptopTable
   m_TagString: SecretCodeGenerator
@@ -4203,6 +4190,20 @@ MonoBehaviour:
   ing2: 
   ing3: 
   ing4: 
+--- !u!114 &532363811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532363804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &566294062
 GameObject:
   m_ObjectHideFlags: 0
@@ -6939,6 +6940,7 @@ GameObject:
   - component: {fileID: 1165949827}
   - component: {fileID: 1165949826}
   - component: {fileID: 1165949829}
+  - component: {fileID: 1165949830}
   m_Layer: 0
   m_Name: catFood
   m_TagString: CatFood
@@ -7100,6 +7102,20 @@ MonoBehaviour:
   inkJsonAsset: {fileID: 4900000, guid: ebf0dbacfee09254ca1a8f0033d78966, type: 3}
   timelinePlayer: {fileID: 92913303}
   variableInk: primerParam
+--- !u!114 &1165949830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165949823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1001 &1187452675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7173,6 +7189,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f64d78385dccc324c8a7a5e89bb8b2df, type: 3}
+--- !u!1 &1187452676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1424464042362681299, guid: f64d78385dccc324c8a7a5e89bb8b2df, type: 3}
+  m_PrefabInstance: {fileID: 1187452675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187452677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187452676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1201486540
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,6 +8438,7 @@ GameObject:
   - component: {fileID: 1436181815}
   - component: {fileID: 1436181814}
   - component: {fileID: 1436181817}
+  - component: {fileID: 1436181818}
   m_Layer: 0
   m_Name: Heladera
   m_TagString: Fridge
@@ -8565,6 +8601,20 @@ MonoBehaviour:
   inkJsonAsset: {fileID: 4900000, guid: 951bfe2ab7b54a24b97e947b698f52ff, type: 3}
   variableInk: objetoFridge
   valorVar: 0
+--- !u!114 &1436181818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436181811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1441247036
 GameObject:
   m_ObjectHideFlags: 0
@@ -9234,6 +9284,7 @@ GameObject:
   - component: {fileID: 1456635654}
   - component: {fileID: 1456635653}
   - component: {fileID: 1456635655}
+  - component: {fileID: 1456635656}
   m_Layer: 0
   m_Name: Interior_36
   m_TagString: Tablecloth
@@ -9393,6 +9444,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 0a5b3a4636b3c4d469df8b8a42e6c5e6, type: 3}
   variableInk: tercerParam
+--- !u!114 &1456635656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456635649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1473670499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6444135076061319053, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
@@ -9837,6 +9902,7 @@ GameObject:
   - component: {fileID: 1558117876}
   - component: {fileID: 1558117875}
   - component: {fileID: 1558117878}
+  - component: {fileID: 1558117879}
   m_Layer: 0
   m_Name: Mesada der (1)
   m_TagString: KitchenGame
@@ -9996,6 +10062,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 0594720eb05e47e4db8d9470f2eba133, type: 3}
   variableInk: cuartoParam
+--- !u!114 &1558117879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558117872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1565556864
 GameObject:
   m_ObjectHideFlags: 0
@@ -11303,6 +11383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2206502001444642661, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf9b5688e315334f8219946cae6b9fa, type: 3}
     - target: {fileID: 2206502001935831366, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11387,10 +11471,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2206502001935831367, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf9b5688e315334f8219946cae6b9fa, type: 3}
     - target: {fileID: 2206502001935831418, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
       propertyPath: m_Name
       value: CanvasExitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2206502002028441365, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf9b5688e315334f8219946cae6b9fa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
 --- !u!114 &1804562085 stripped

@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 107845757}
   - component: {fileID: 107845756}
   - component: {fileID: 107845759}
+  - component: {fileID: 107845760}
   m_Layer: 0
   m_Name: cupboard
   m_TagString: Untagged
@@ -296,6 +297,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 2f28fdef008ead44a884a5a7ee927de0, type: 3}
   variableInk: 
+--- !u!114 &107845760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107845753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &111165242
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +585,7 @@ GameObject:
   - component: {fileID: 180546912}
   - component: {fileID: 180546915}
   - component: {fileID: 180546914}
+  - component: {fileID: 180546916}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Untagged
@@ -686,6 +702,20 @@ MonoBehaviour:
   inkJsonAsset: {fileID: 0}
   variableInk: 
   timelinePlayer: {fileID: 0}
+--- !u!114 &180546916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180546911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &213807323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2805,7 @@ GameObject:
   - component: {fileID: 708263522}
   - component: {fileID: 708263521}
   - component: {fileID: 708263524}
+  - component: {fileID: 708263525}
   m_Layer: 0
   m_Name: plant
   m_TagString: Untagged
@@ -2934,6 +2965,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: a58e9c1a1850b404ea123b81d0d71d65, type: 3}
   variableInk: 
+--- !u!114 &708263525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708263518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &732140401
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,6 +3224,7 @@ GameObject:
   - component: {fileID: 978854093}
   - component: {fileID: 978854096}
   - component: {fileID: 978854095}
+  - component: {fileID: 978854097}
   m_Layer: 0
   m_Name: cup
   m_TagString: Cup
@@ -3291,6 +3337,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8487209, y: 1.7111733}
   m_EdgeRadius: 0
+--- !u!114 &978854097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978854092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1004790457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,6 +3425,7 @@ GameObject:
   - component: {fileID: 1024301364}
   - component: {fileID: 1024301366}
   - component: {fileID: 1024301367}
+  - component: {fileID: 1024301368}
   m_Layer: 0
   m_Name: book
   m_TagString: Untagged
@@ -3477,6 +3538,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 9a86b9867c4297b419d73090b4c62a74, type: 3}
   variableInk: 
+--- !u!114 &1024301368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024301363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1026219666
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,6 +3566,7 @@ GameObject:
   - component: {fileID: 1026219670}
   - component: {fileID: 1026219669}
   - component: {fileID: 1026219672}
+  - component: {fileID: 1026219673}
   m_Layer: 0
   m_Name: bookshelf
   m_TagString: Bookshelf
@@ -3650,6 +3726,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 53d69c28e0ad72a468517bf8e013e7cd, type: 3}
   variableInk: primerNum
+--- !u!114 &1026219673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026219666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1037926423
 GameObject:
   m_ObjectHideFlags: 0
@@ -9035,6 +9125,7 @@ GameObject:
   - component: {fileID: 1151064902}
   - component: {fileID: 1151064904}
   - component: {fileID: 1151064903}
+  - component: {fileID: 1151064905}
   m_Layer: 0
   m_Name: lightSwitch
   m_TagString: Untagged
@@ -9152,6 +9243,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.190192}
   m_EdgeRadius: 0
+--- !u!114 &1151064905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151064900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1241393467
 GameObject:
   m_ObjectHideFlags: 0
@@ -10653,6 +10758,7 @@ GameObject:
   - component: {fileID: 1603843114}
   - component: {fileID: 1603843113}
   - component: {fileID: 1603843116}
+  - component: {fileID: 1603843117}
   m_Layer: 0
   m_Name: shelf
   m_TagString: Shelf
@@ -10812,6 +10918,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: d752de68a78c6d04f9c8279ce7bf4ffa, type: 3}
   variableInk: 
+--- !u!114 &1603843117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603843110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1687334561
 GameObject:
   m_ObjectHideFlags: 0
@@ -11310,6 +11430,7 @@ GameObject:
   - component: {fileID: 1818239944}
   - component: {fileID: 1818239943}
   - component: {fileID: 1818239946}
+  - component: {fileID: 1818239947}
   m_Layer: 0
   m_Name: bed
   m_TagString: Bed
@@ -11473,6 +11594,20 @@ MonoBehaviour:
   inkJsonAsset: {fileID: 4900000, guid: 994ea52a5e3b8ed40b3650acb9f5ea6f, type: 3}
   variableInk: cuartoNum
   timelinePlayer: {fileID: 1598953969}
+--- !u!114 &1818239947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818239940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1843991167
 GameObject:
   m_ObjectHideFlags: 0
@@ -11593,6 +11728,7 @@ GameObject:
   - component: {fileID: 1864698045}
   - component: {fileID: 1864698044}
   - component: {fileID: 1864698047}
+  - component: {fileID: 1864698048}
   m_Layer: 0
   m_Name: plant2
   m_TagString: Untagged
@@ -11752,6 +11888,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: a58e9c1a1850b404ea123b81d0d71d65, type: 3}
   variableInk: 
+--- !u!114 &1864698048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864698041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1 &1894946084
 GameObject:
   m_ObjectHideFlags: 0
@@ -11922,6 +12072,7 @@ GameObject:
   - component: {fileID: 1931521671}
   - component: {fileID: 1931521670}
   - component: {fileID: 1931521669}
+  - component: {fileID: 1931521672}
   m_Layer: 0
   m_Name: FinishPuzzle
   m_TagString: Untagged
@@ -11941,8 +12092,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111adc7b990840488789a8f0175d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: Scene2
+  newSceneName: Change1-2
   actualSceneNum: 1
+  audC: {fileID: 0}
 --- !u!61 &1931521670
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11983,6 +12135,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931521672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931521668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!114 &1952135982 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6444135076858144986, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
@@ -12266,6 +12432,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f64d78385dccc324c8a7a5e89bb8b2df, type: 3}
+--- !u!1 &1424464042264188317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1424464042362681299, guid: f64d78385dccc324c8a7a5e89bb8b2df, type: 3}
+  m_PrefabInstance: {fileID: 1424464042264188316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1424464042264188318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424464042264188317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
 --- !u!1001 &2165969461001493474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12350,6 +12535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2206502001444642661, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf9b5688e315334f8219946cae6b9fa, type: 3}
     - target: {fileID: 2206502001935831366, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -12434,10 +12623,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2206502001935831367, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf9b5688e315334f8219946cae6b9fa, type: 3}
     - target: {fileID: 2206502001935831418, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
       propertyPath: m_Name
       value: CanvasExitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2206502002028441365, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf9b5688e315334f8219946cae6b9fa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72c4c9ce1e67504baafa9bb4484eae7, type: 3}
 --- !u!1001 &5146400989607684354

@@ -68,13 +68,11 @@ public class InkManager : MonoBehaviour
 
             if (itemTag == "Microwave")
             {
-                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing2;//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
-                //item.GetComponent<fridgePuzle>().valorVar = "0";
+                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing2;
             }
             if (itemTag == "CatFood")
             {
-                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing1;//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
-                //item.GetComponent<fridgePuzle>().valorVar = "0";
+                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing1;
             }
             if (itemTag == "Tablecloth")
             {
@@ -141,13 +139,11 @@ public class InkManager : MonoBehaviour
 
             if (itemTag == "Microwave")
             {
-                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing2;//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
-                //item.GetComponent<fridgePuzle>().valorVar = "0";
+                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing2;
             }
             if (itemTag == "CatFood")
             {
-                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing1;//int.Parse(item.GetComponent<fridgePuzle>().valorVar);
-                //item.GetComponent<fridgePuzle>().valorVar = "0";
+                _story.variablesState[variableInk] = numGenerator.GetComponent<Laptop>().ing1;
             }
             if (itemTag == "Tablecloth")
             {
@@ -194,13 +190,9 @@ public class InkManager : MonoBehaviour
         if(itemTag == "CheckOneTime")
         {
             globalVariables.GetComponent<GlobalVariables>().changeVariable(variableInk,"1");
-            /*if(_story.variablesState[variableInk].ToString() == "0")
-            {
-                _story.variablesState[variableInk] = "1";
-                //Mandar el valor a checkFirsftTime para recogerlo despues en startStory
-            }*/ 
+
         }
-        else //REVISAR ESTA PARTE-
+        else
         {
             if(itemTag=="Bath")
             {
@@ -208,7 +200,6 @@ public class InkManager : MonoBehaviour
                 {
                     if(_story.variablesState[variableInk].ToString() != "Null")
                     {
-                        Debug.Log(_story.variablesState[variableInk].ToString());
                         valorSituacion = _story.variablesState[variableInk].ToString();
                         item.GetComponent<waterPuzle>().valorVar = valorSituacion;
                     }
@@ -220,7 +211,6 @@ public class InkManager : MonoBehaviour
                 {
                     if (_story.variablesState[variableInk].ToString() != "Null")
                     {
-                        Debug.Log(_story.variablesState[variableInk].ToString());
                         valorSituacion = _story.variablesState[variableInk].ToString();
                         item.GetComponent<fridgePuzle>().valorVar = valorSituacion;
                     }

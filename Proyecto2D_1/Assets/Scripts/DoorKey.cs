@@ -26,25 +26,22 @@ public class DoorKey : MonoBehaviour
             {
                 if(globalVariables.GetComponent<GlobalVariables>().getValue(variableInk) == "0") //No cumple condicion
                 {
-                    Debug.Log("Cerrado");
                     player.GetComponent<PlayerController>().canMove = false;
                     player.GetComponent<Animator>().SetBool("isWalking",false);
                     inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, gameObject.GetComponent<checkPlayerRange>().itemTag);
                 }
-                else //Cumple condicion (Por ejemplo tener una llave)
+                else //Cumple condicion
                 {
                     if(gameObject.tag == "HasPuzzle")
                     {
-                        Debug.Log("Abierto, muestra puzle");
                         player.GetComponent<PlayerController>().canMove = false;
                         panelPuzzle.SetActive(true);
-                        //globalVariables.GetComponent<GlobalVariables>().changeVariable("gotKey2","1");
-                        
                     }
                     else
                     {
+                        player.GetComponent<PlayerController>().canMove = false;
+                        player.GetComponent<Animator>().SetBool("isWalking", false);
                         inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, gameObject.GetComponent<checkPlayerRange>().itemTag, "1");
-                        Debug.Log("Abierto, consigues tapon");
                         globalVariables.GetComponent<GlobalVariables>().changeVariable("taponEncontrado","1");
                     }
 

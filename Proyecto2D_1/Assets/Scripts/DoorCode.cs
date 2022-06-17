@@ -18,7 +18,10 @@ public class DoorCode : MonoBehaviour
     public string secretNum = "";
     private GameObject door;
     private GameObject numGenerator;
-    //private bool acertado = false;
+    private GameObject cam;
+    private AudioSource audS;
+    public AudioClip audC;
+
     void Start()
     {
         try
@@ -28,11 +31,13 @@ public class DoorCode : MonoBehaviour
         }
         catch
         {
-            //Debug.Log("No hay generador de numeros secretos");
+            
         }
         player = GameObject.FindWithTag("Player");
         door = GameObject.FindWithTag("Door");
         screen.text="";
+        cam = GameObject.FindWithTag("MainCamera");
+        audS = cam.GetComponent<AudioSource>();
 
     }
 
@@ -69,11 +74,8 @@ public class DoorCode : MonoBehaviour
     {
         if(screen.text.Length < codeLength)
         {
-            //screenNum = screen.text;
             inputNum = gameObject.GetComponentInChildren<Text>().text;
-            Debug.Log(inputNum);
             screen.text += inputNum;
-            Debug.Log(screen.text);
         }   
     }
     public void checkCode()
@@ -81,7 +83,6 @@ public class DoorCode : MonoBehaviour
         if(screen.text.Length == codeLength)
         {
 
-            //acertado = true;
             if(screen.text.Equals(secretNum))
             {
                 closePanelCode();
@@ -90,6 +91,10 @@ public class DoorCode : MonoBehaviour
             else
             {
                 screen.text = "";
+                if (audC != null)
+                {
+                    audS.PlayOneShot(audC);
+                }
             }
         }
     }

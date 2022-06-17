@@ -57,7 +57,7 @@ public class CloseGame : MonoBehaviour
     {
         /*try
         {
-            UnityEditor.EditorApplication.isPlaying = false; //Para simular la funcionalidad
+            UnityEditor.EditorApplication.isPlaying = false; //Para simular la funcionalidad en el editor
             
         }
         catch

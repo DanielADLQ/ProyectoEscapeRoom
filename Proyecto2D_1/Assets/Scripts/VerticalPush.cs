@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class VerticalPush : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    int minY = -7;
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.transform.position.y < -7)
+        if(gameObject.transform.position.y < minY)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x,-7,gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, minY, gameObject.transform.position.z);
         }
     }
 }

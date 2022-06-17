@@ -11,7 +11,6 @@ public class LightPuzle : MonoBehaviour
     [SerializeField] private TextAsset inkJsonAsset;
     public string variableInk;
     private GameObject inkManager;
-
     [SerializeField] private GameObject timelinePlayer;
     private bool animLaunched = false;
 
@@ -20,9 +19,6 @@ public class LightPuzle : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         inkManager = GameObject.FindWithTag("InkManager");
-        //roomLight = GameObject.FindWithTag("Dark");
-        //lampLight = GameObject.FindWithTag("LampLight");
-        //Debug.Log(roomLight.ToString());
     }
 
     // Update is called once per frame
@@ -34,15 +30,12 @@ public class LightPuzle : MonoBehaviour
             {
                 if(roomLight.activeSelf && lampLight.activeSelf)
                 {
-                    Debug.Log("Enseña el numero que toque");
                     player.GetComponent<PlayerController>().canMove = false;
                     player.GetComponent<Animator>().SetBool("isWalking",false);
 
                     timelinePlayer.GetComponent<TimelinePlayer>().StartTimeline();
                     animLaunched = true;
-
-                    //inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
-                    
+ 
                 }
 
             }

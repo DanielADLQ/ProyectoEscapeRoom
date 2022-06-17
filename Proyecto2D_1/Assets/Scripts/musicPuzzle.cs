@@ -10,26 +10,32 @@ public class musicPuzzle : MonoBehaviour
     [SerializeField] private GameObject globalVariables;
     [SerializeField] private GameObject musicGamePanel;
     [SerializeField] private GameObject musicExample;
-    //[SerializeField] private GameObject btnClose;
     private GameObject player;
+    private GameObject cam;
     private string numCompleto;
     private string numPrueba;
+    private AudioSource audS;
+    public AudioClip audC;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        //gameObject.transform.GetChild(0).GetComponent<Button>().enabled = false;
         for(int i=0;i<6;i++)
         {
             gameObject.transform.GetChild(i).GetComponent<Button>().enabled = false;
         }
-        numCompleto = "14213042"; //La solucion es fija
+        numCompleto = "14213042"; //La solucion
         numPrueba = "";
+
+        cam = GameObject.FindWithTag("MainCamera");
+        audS = cam.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Activa o desactiva los botones del puzle
         if(musicExample.GetComponent<TimelinePlayer>().isplaying)
         {
             for(int i=0;i<6;i++)
@@ -51,7 +57,6 @@ public class musicPuzzle : MonoBehaviour
     {
         if(numPrueba.Length < 8)
         {
-            Debug.Log("Registra");
             numPrueba += cod;
         }
 
@@ -64,17 +69,17 @@ public class musicPuzzle : MonoBehaviour
 
     private void checkCode()
     {
-        Debug.Log("Ya no Registra");
         if(numPrueba == numCompleto)
         {
-            Debug.Log("CORRECTO");
             globalVariables.GetComponent<GlobalVariables>().changeVariable("gotKey2","1");
             closeMusicPanel();
-
         }
         else
         {
-            Debug.Log("INCORRECTO"); //AÑADIR SONIDO DE INCORRECTO
+            if (audC != null)
+            {
+                audS.PlayOneShot(audC);
+            }
         }
         numPrueba = "";    
     }
@@ -82,7 +87,6 @@ public class musicPuzzle : MonoBehaviour
     public void closeMusicPanel()
     {
         musicGamePanel.SetActive(false);
-        //btnClose.SetActive(false);
         numPrueba = "";
         player.GetComponent<PlayerController>().canMove = true;
     }

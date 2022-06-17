@@ -351,7 +351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: . . .
+  m_Text: 
 --- !u!222 &804170131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7b3254e8f6fb243bfcff9e405b4866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textSceneWait: {fileID: 804170128}
   newScene: Scene2
 --- !u!1 &1110476471
 GameObject:

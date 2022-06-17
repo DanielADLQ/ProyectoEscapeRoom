@@ -29,15 +29,12 @@ public class ChairPuzle : MonoBehaviour
         {
             if(player.GetComponent<PlayerController>().canMove)
             {
-                //didDialogueStart = true;
                 player.GetComponent<PlayerController>().canMove = false;
                 player.GetComponent<Animator>().SetBool("isWalking",false);
-                Debug.Log("Me subo a la silla");
 
                 timelinePlayer.GetComponent<TimelinePlayer>().StartTimeline();
                 animLaunched = true;
 
-                //inkManager.GetComponent<InkManager>().StartStory(inkJsonAsset, variableInk, this.tag);
             }
         }
 
@@ -54,14 +51,11 @@ public class ChairPuzle : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            //dialogMark.SetActive(true);
-            Debug.Log("Zona dialogo");
         }
 
         if(collision.gameObject.CompareTag("Shelf"))
         {
             chairNearShelf = true;
-            //dialogMark.SetActive(true);
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
@@ -71,14 +65,11 @@ public class ChairPuzle : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            //dialogMark.SetActive(false);
-            Debug.Log("No Zona dialogo");
         }
 
         if(collision.gameObject.CompareTag("Shelf"))
         {
             chairNearShelf = false;
-            //dialogMark.SetActive(true);
         }
     }
 }

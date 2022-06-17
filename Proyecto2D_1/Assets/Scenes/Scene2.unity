@@ -571,7 +571,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150912881}
   m_LocalRotation: {x: 0, y: 0, z: -0.043619405, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234543945}
@@ -615,7 +615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: D
+  m_Text: 
 --- !u!222 &150912884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1003,7 +1003,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241545838}
   m_LocalRotation: {x: 0, y: 0, z: -0.043619405, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234543945}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: B
+  m_Text: 
 --- !u!222 &241545841
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1234,6 +1234,7 @@ MonoBehaviour:
   globalVariables: {fileID: 727999622}
   musicGamePanel: {fileID: 253335828}
   musicExample: {fileID: 144324679}
+  audC: {fileID: 8300000, guid: 4e163702d9aca8144a8372c482ff3d5e, type: 3}
 --- !u!1001 &280101744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,7 +2195,6 @@ GameObject:
   - component: {fileID: 636878222}
   - component: {fileID: 636878221}
   - component: {fileID: 636878220}
-  - component: {fileID: 636878219}
   - component: {fileID: 636878218}
   m_Layer: 5
   m_Name: QuitScreen
@@ -2243,23 +2243,6 @@ MonoBehaviour:
   n2: {fileID: 0}
   n3: {fileID: 0}
   n4: {fileID: 0}
---- !u!114 &636878219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636878216}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3979fe0ea4fc19e4ebc690f66d947ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelCode: {fileID: 0}
-  btnClose: {fileID: 636878216}
-  screen: {fileID: 0}
-  codeLength: 4
-  secretNum: 
 --- !u!114 &636878220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3150,7 +3133,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854752486}
   m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234543945}
@@ -3194,7 +3177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: 
 --- !u!222 &854752489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3386,7 +3369,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016561937}
   m_LocalRotation: {x: 0, y: 0, z: 0.026176924, w: 0.99965733}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234543945}
@@ -3430,7 +3413,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: C
+  m_Text: 
 --- !u!222 &1016561940
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4056,6 +4039,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 2202509784240688648, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e163702d9aca8144a8372c482ff3d5e, type: 3}
     - target: {fileID: 4755344972666555919, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

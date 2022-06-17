@@ -47,6 +47,5 @@ public class Laptop : MonoBehaviour
     {
         panelLaptop.SetActive(false);
         player.GetComponent<PlayerController>().canMove = true;
-
     }
 }

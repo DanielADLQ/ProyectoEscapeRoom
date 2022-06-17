@@ -19,12 +19,5 @@ public class SecretCodeGenerator : MonoBehaviour
         n4 = Random.Range(0,10).ToString();
         //Se genera un numero de 4 cifras con las obtenidas
         numCompleto = n1+n2+n3+n4;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

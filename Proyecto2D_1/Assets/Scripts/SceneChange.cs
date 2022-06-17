@@ -7,10 +7,8 @@ public class SceneChange : MonoBehaviour
 {
     public string newSceneName;
     public string actualSceneNum;
-
     private GameObject cam;
     private GameObject saveVariables;
-
     private AudioSource audS;
     public AudioClip audC;
 

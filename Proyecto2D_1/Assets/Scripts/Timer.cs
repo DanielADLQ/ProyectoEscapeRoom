@@ -9,8 +9,6 @@ public class Timer : MonoBehaviour
     private bool cronoActive;
     private float currentTime;
     public string timeStr;
-
-    //public Text timerText;
     
     // Start is called before the first frame update
     void Start()
@@ -38,7 +36,6 @@ public class Timer : MonoBehaviour
             timeStr = time.ToString(@"mm\:ss\:fff");
             
         }
-
     }
 
     public void StartCrono()

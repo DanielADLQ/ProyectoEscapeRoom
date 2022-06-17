@@ -7,13 +7,12 @@ using UnityEngine.UI;
 public class mirror : MonoBehaviour
 {
     [SerializeField] private GameObject bath;
-    //[SerializeField] private GameObject canvasMirror;
     [SerializeField] private GameObject panelEspejo;
     [SerializeField] private GameObject panelEmpaniado;
     [SerializeField] private GameObject btnClose;
     private GameObject player;
     private GameObject numGenerator;
-    [SerializeField] private GameObject n1;
+    [SerializeField] public GameObject n1;
     [SerializeField] private GameObject n2;
     [SerializeField] private GameObject n3;
     [SerializeField] private GameObject n4;
@@ -25,18 +24,39 @@ public class mirror : MonoBehaviour
         if (gameObject.TryGetComponent<checkPlayerRange>(out check))
         {
             numGenerator = GameObject.FindWithTag("SecretCodeGenerator");
-            n1.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n1;
-            n2.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n2;
-            n3.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n3;
-            n4.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n4;
-        }
+            //Asigna los numeros del espejo
+            n1.GetComponent<Text>().text = "";
+            n2.GetComponent<Text>().text = "";
+            n3.GetComponent<Text>().text = "";
+            n4.GetComponent<Text>().text = "";
 
-        
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(n1 != null || n2 != null || n3 != null || n4 != null)
+        {
+            if (n1.GetComponent<Text>().text.Length == 0)
+            {
+                n1.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n1;
+            }
+            if (n2.GetComponent<Text>().text.Length == 0)
+            {
+                n2.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n2;
+            }
+            if (n3.GetComponent<Text>().text.Length == 0)
+            {
+                n3.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n3;
+            }
+            if (n4.GetComponent<Text>().text.Length == 0)
+            {
+                n4.GetComponent<Text>().text = numGenerator.GetComponent<SecretCodeGenerator>().n4;
+            }
+        }
+
+
         checkPlayerRange check;
         if (gameObject.TryGetComponent<checkPlayerRange>(out check))
         {
@@ -69,7 +89,5 @@ public class mirror : MonoBehaviour
         panelEmpaniado.SetActive(false);
         btnClose.SetActive(false);
         player.GetComponent<PlayerController>().canMove = true;
-
     }
-
 }

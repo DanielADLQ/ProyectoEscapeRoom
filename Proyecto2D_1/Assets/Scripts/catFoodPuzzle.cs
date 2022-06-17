@@ -28,12 +28,8 @@ public class catFoodPuzzle : MonoBehaviour
             {
                 if (player.GetComponent<PlayerController>().canMove)
                 {
-                    //didDialogueStart = true;
                     player.GetComponent<PlayerController>().canMove = false;
                     player.GetComponent<Animator>().SetBool("isWalking", false);
-
-                    //Lanzar Timeline, al acabar poner variable fridge a 0
-                    //Y activar dialogo gato
 
                     timelinePlayer.GetComponent<TimelinePlayer>().StartTimeline();
                     animLaunched = true;

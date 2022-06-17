@@ -7,11 +7,6 @@ public class NextButtonScript : MonoBehaviour
   void Start()
   {
     _inkManager = FindObjectOfType<InkManager>();
-
-    if (_inkManager == null)
-    {
-      Debug.LogError("Ink Manager was not found!");
-    }
   }
 
   public void OnClick()

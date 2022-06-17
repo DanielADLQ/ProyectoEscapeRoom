@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class InkManager : MonoBehaviour
 {
-    //[SerializeField] private TextAsset _inkJsonAsset;
     private Story _story;
     [SerializeField] private Text _textField;
     [SerializeField] private VerticalLayoutGroup _choiceButtonContainer;
@@ -14,7 +13,7 @@ public class InkManager : MonoBehaviour
     [SerializeField] private GameObject globalVariables;
     private GameObject numGenerator;
     private string variableInk;
-    public string valorSituacion = ""; //MEJOR IMPLEMENTAR CON CORRUTINAS
+    public string valorSituacion = "";
     [SerializeField] private GameObject item;
     private string itemTag;
     [SerializeField] private GameObject dbUserItem;
@@ -23,11 +22,6 @@ public class InkManager : MonoBehaviour
     string[] listaIng2 = { "Cerdo", "Pollo", "Buey", "Ternera", "Cordero" };
     string[] listaIng3 = { "Manzana", "Plátano", "Naranja", "Melocotón", "Kiwi" };
     string[] listaIng4 = { "Natillas", "Tiramisú", "Flan", "Helado", "Tarta" };
-
-    void Start()
-    {
-        //StartStory();
-    }
 
     public void StartStory(TextAsset inkJsonAsset, string variableInk, string itemTag)
     {
@@ -64,7 +58,6 @@ public class InkManager : MonoBehaviour
             {
                 _story.variablesState[variableInk] = int.Parse(item.GetComponent<fridgePuzle>().valorVar);
             }
-
 
             if (itemTag == "Microwave")
             {
@@ -165,11 +158,11 @@ public class InkManager : MonoBehaviour
     {
         if (_story.canContinue)
         {
-            string text = _story.Continue(); // gets next line
+            string text = _story.Continue();
 
-            text = text?.Trim(); // removes white space from text
+            text = text?.Trim();
 
-            _textField.text = text; // displays new text
+            _textField.text = text;
         }
         else if (_story.currentChoices.Count > 0)
         {
@@ -186,7 +179,6 @@ public class InkManager : MonoBehaviour
         textContainer.SetActive(false);
         player.GetComponent<PlayerController>().canMove = true;
 
-        //OBJETOS CUYO TEXTO CAMBIA TRAS LA PRIMERA INTERACCION
         if(itemTag == "CheckOneTime")
         {
             globalVariables.GetComponent<GlobalVariables>().changeVariable(variableInk,"1");
@@ -232,14 +224,12 @@ public class InkManager : MonoBehaviour
     }
     private void DisplayChoices()
     {
-        // checks if choices are already being displayed
         if (_choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) return;
 
-        for (int i = 0; i < _story.currentChoices.Count; i++) // iterates through all choices
+        for (int i = 0; i < _story.currentChoices.Count; i++)
         {
-
             var choice = _story.currentChoices[i];
-            var button = CreateChoiceButton(choice.text); // creates a choice button
+            var button = CreateChoiceButton(choice.text);
 
             button.onClick.AddListener(() => OnClickChoiceButton(choice));
         }
@@ -247,11 +237,9 @@ public class InkManager : MonoBehaviour
 
     Button CreateChoiceButton(string text)
     {
-        // creates the button from a prefab
         var choiceButton = Instantiate(_choiceButtonPrefab);
         choiceButton.transform.SetParent(_choiceButtonContainer.transform, false);
 
-        // sets text on the button
         var buttonText = choiceButton.GetComponentInChildren<Text>();
         buttonText.text = text;
 
@@ -260,9 +248,9 @@ public class InkManager : MonoBehaviour
 
     void OnClickChoiceButton(Choice choice)
     {
-        _story.ChooseChoiceIndex(choice.index); // tells ink which choice was selected
+        _story.ChooseChoiceIndex(choice.index);
         _story.Continue();
-        RefreshChoiceView(); // removes choices from the screen
+        RefreshChoiceView();
         DisplayNextLine();
     }
 

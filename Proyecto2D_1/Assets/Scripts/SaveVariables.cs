@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SaveVariables : MonoBehaviour
 {
-
     public static SaveVariables instance;
-
     public int cod;
 
     private void Awake()

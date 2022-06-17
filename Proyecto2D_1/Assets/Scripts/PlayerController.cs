@@ -29,10 +29,8 @@ public class PlayerController : MonoBehaviour
 
             if(horizontalInput!=0 || verticalInput!=0){
 
-                if(!isWalking){
-                    isWalking = true;
-                    anim.SetBool("isWalking",isWalking);
-                }
+                isWalking = true;
+                anim.SetBool("isWalking",isWalking);
 
                 anim.SetFloat("MoveX",horizontalInput);
                 anim.SetFloat("MoveY",verticalInput);
@@ -43,11 +41,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if(isWalking)
-                {
-                    isWalking = false;
-                    anim.SetBool("isWalking",isWalking);
-                }
+                isWalking = false;
+                anim.SetBool("isWalking",isWalking);
             }
         }
     }

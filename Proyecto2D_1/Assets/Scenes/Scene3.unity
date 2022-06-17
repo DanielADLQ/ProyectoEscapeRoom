@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 26877013}
   - component: {fileID: 26877014}
   m_Layer: 0
-  m_Name: Interior_24
+  m_Name: puff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11666095, y: 0.11599636}
+  m_Offset: {x: -0.30137932, y: 0.11599636}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -392,7 +392,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2333219, y: 1.1069925}
+  m_Size: {x: 0.86388516, y: 1.1069925}
   m_EdgeRadius: 0
 --- !u!61 &26877011
 BoxCollider2D:
@@ -3060,7 +3060,7 @@ GameObject:
   - component: {fileID: 309689364}
   - component: {fileID: 309689363}
   m_Layer: 0
-  m_Name: Laptop_1
+  m_Name: Laptop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4561,7 +4561,7 @@ GameObject:
   - component: {fileID: 701086786}
   - component: {fileID: 701086785}
   m_Layer: 0
-  m_Name: house_inside_71
+  m_Name: chair4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5344,7 +5344,7 @@ GameObject:
   - component: {fileID: 817000303}
   - component: {fileID: 817000302}
   m_Layer: 0
-  m_Name: Interior_79
+  m_Name: Cup2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5426,7 +5426,7 @@ GameObject:
   - component: {fileID: 851695613}
   - component: {fileID: 851695612}
   m_Layer: 0
-  m_Name: Interior_57
+  m_Name: Picture2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6628,8 +6628,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1107826902}
   - component: {fileID: 1107826901}
+  - component: {fileID: 1107826905}
+  - component: {fileID: 1107826904}
+  - component: {fileID: 1107826903}
   m_Layer: 0
-  m_Name: Interior_42
+  m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6700,6 +6703,60 @@ Transform:
   m_Father: {fileID: 1203350215}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107826903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107826900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
+--- !u!114 &1107826904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107826900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd26a6e9937a9f4bb634789be1c01f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJsonAsset: {fileID: 4900000, guid: 1767845cedd97db4a9868500e6822759, type: 3}
+  variableInk: 
+--- !u!61 &1107826905
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107826900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.63660336, y: -1.0241013}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 2.375}
+    newSize: {x: 2.5, y: 2.375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2267933, y: 4.4232025}
+  m_EdgeRadius: 0
 --- !u!1 &1147509751
 GameObject:
   m_ObjectHideFlags: 0
@@ -6855,7 +6912,7 @@ GameObject:
   - component: {fileID: 1165002789}
   - component: {fileID: 1165002788}
   m_Layer: 0
-  m_Name: Interior_78
+  m_Name: Cup1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7362,7 +7419,7 @@ GameObject:
   - component: {fileID: 1212245101}
   - component: {fileID: 1212245100}
   m_Layer: 0
-  m_Name: Interior_58
+  m_Name: Picture1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8205,7 +8262,7 @@ GameObject:
   - component: {fileID: 1356309247}
   - component: {fileID: 1356309246}
   m_Layer: 0
-  m_Name: house_inside_33
+  m_Name: chair3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8440,7 +8497,7 @@ GameObject:
   - component: {fileID: 1436181817}
   - component: {fileID: 1436181818}
   m_Layer: 0
-  m_Name: Heladera
+  m_Name: Fridge
   m_TagString: Fridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8872,6 +8929,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 2202509784240688648, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
+      propertyPath: audC
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e163702d9aca8144a8372c482ff3d5e, type: 3}
     - target: {fileID: 4755344972666555919, guid: a3ff2848bf09a904cbf3a395db49c2e7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -10253,7 +10314,7 @@ GameObject:
   - component: {fileID: 1595116212}
   - component: {fileID: 1595116211}
   m_Layer: 0
-  m_Name: house_inside_32
+  m_Name: chair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12229,7 +12290,7 @@ GameObject:
   - component: {fileID: 2012973794}
   - component: {fileID: 2012973793}
   m_Layer: 0
-  m_Name: house_inside_68
+  m_Name: kitchenTools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12389,7 +12450,7 @@ GameObject:
   - component: {fileID: 2038796074}
   - component: {fileID: 2038796073}
   m_Layer: 0
-  m_Name: Bins_10
+  m_Name: Bin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12623,7 +12684,7 @@ GameObject:
   - component: {fileID: 2050141238}
   - component: {fileID: 2050141237}
   m_Layer: 0
-  m_Name: Interior_60
+  m_Name: Clock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12707,8 +12768,10 @@ GameObject:
   - component: {fileID: 2088983655}
   - component: {fileID: 2088983654}
   - component: {fileID: 2088983653}
+  - component: {fileID: 2088983657}
+  - component: {fileID: 2088983656}
   m_Layer: 0
-  m_Name: Basurero
+  m_Name: RecyclerBin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12852,6 +12915,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2088983656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088983650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fdfa09e8be8dd46807173588212423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRange: 0
+  itemTag: 
+--- !u!114 &2088983657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088983650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd26a6e9937a9f4bb634789be1c01f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJsonAsset: {fileID: 4900000, guid: d7b1c390c057fe74f822340eceeb8375, type: 3}
+  variableInk: 
 --- !u!1 &2095654512
 GameObject:
   m_ObjectHideFlags: 0
@@ -12866,7 +12957,7 @@ GameObject:
   - component: {fileID: 2095654517}
   - component: {fileID: 2095654516}
   m_Layer: 0
-  m_Name: house_inside_23
+  m_Name: chair1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

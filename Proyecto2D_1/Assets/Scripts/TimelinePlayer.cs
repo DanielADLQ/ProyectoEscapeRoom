@@ -8,13 +8,13 @@ public class TimelinePlayer : MonoBehaviour
     public GameObject controlPanel;
     public bool isplaying;
     private GameObject player;
+
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
         director = GetComponent<PlayableDirector>();
         director.played += Director_Played;
         director.stopped += Director_Stopped;
-        //isplaying = true;
 
         if (gameObject.tag == "InitialCutscene")
         {
